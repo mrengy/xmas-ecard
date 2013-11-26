@@ -1,16 +1,55 @@
 $( document ).ready(function() {
+	var x = 100;
+	var y = -141;
+	var dx = 0;
+	var dy = 2;
+	var w = 306;
+	var h = 299;
+	var ctx;
+	var WIDTH;
+	var HEIGHT;
+	var intervalId = 0;
+	var emflake = new Image();
+	emflake.src = 'img/emflake.png';
+	
 	function init(){
-		var c_canvas = document.getElementById('#card');
-	 	var c_context = c_canvas.getContext('2d');
-		draw();
+		//set context
+		ctx = $("canvas#card")[0].getContext('2d');
+		
+		WIDTH = $("canvas#card").width()
+		HEIGHT = $("canvas#card").height()
+		
+		intervalId = setInterval(draw, 10);
 	}
 	
 	function draw(){
-		var emflake = new Image();
-		emflake.src = 'img/emflake.png';
-		emflake.onload = function(){
-			c_context.drawImage(emflake, 100, 100);
-		}
+		clear();
+		drawEmflake(x, y, w, h);
+		
+		dx = getRandomInt(-1,1);
+		
+		x += dx;
+		y += dy;
 	}
-	window.onLoad=function() { init(); };
+	
+	function drawEmflake(x, y, w, h){
+		ctx.drawImage(emflake, x, y, w, h);
+	}
+	
+	function clear() {
+	  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+	}
+	
+	function getRandomInt (min, max) {
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	
+	function drawRect(){
+		/* draw a rectangle just for debugging purposes */
+		ctx.fillRect(100, 100, 10, 10);
+	}
+	
+	init(); 
+	
+//end document ready	
 });
