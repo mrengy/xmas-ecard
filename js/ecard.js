@@ -6,8 +6,8 @@ $( document ).ready(function() {
 	
 	var emflake = new Image();
 	emflake.src = 'img/emflake.png';
-	var x = 100;
-	var y = -141;
+	var x = x0 = 100;
+	var y = y0 = -299;
 	var dx = 0;
 	var dy = 2;
 	var w = 306;
@@ -15,8 +15,8 @@ $( document ).ready(function() {
 	
 	var mikeflake = new Image();
 	mikeflake.src = 'img/mikeflake.png';
-	var mx = 300;
-	var my = -641;
+	var mx = mx0 = 300;
+	var my = my0 = -641;
 	var dmx = 0;
 	var dmy = 2;
 	var mw = 261;
@@ -24,8 +24,8 @@ $( document ).ready(function() {
 	
 	var lightning = new Image();
 	lightning.src = 'img/lightning.png';
-	var lx = -500;
-	var ly = 100;
+	var lx = lx0 = -500;
+	var ly = ly0 = 100;
 	var dlx = 2;
 	var dly = 0;
 	var lw = 414;
@@ -33,8 +33,8 @@ $( document ).ready(function() {
 	
 	var fry = new Image();
 	fry.src = 'img/fry.png';
-	var fx = -900;
-	var fy = 200;
+	var fx = fx0 = -900;
+	var fy = fy0 = 200;
 	var dfx = 2;
 	var dfy = 0;
 	var fw = 364;
@@ -57,21 +57,25 @@ $( document ).ready(function() {
 		dx = getRandomInt(-1,1);		
 		x += dx;
 		y += dy;
+		if (y > HEIGHT)	y = y0;
 		
 		drawCharacter(mikeflake, mx, my, mw, mh);
 		dmx = getRandomInt(-1,1);		
 		mx += dmx;
 		my += dmy;
+		if (my > HEIGHT) my = my0;
 		
 		drawCharacter(lightning, lx, ly, lw, lh);
 		dly = getRandomInt(-1, 1);
 		lx += dlx;
 		ly += dly;
+		if (lx > WIDTH) lx = lx0;
 		
 		drawCharacter(fry, fx, fy, fw, fh);
 		dfy = getRandomInt(-1,1);		
 		fx += dfx;
 		fy += dfy;
+		if (fx > WIDTH) fx = fx0;
 		
 	}
 	
