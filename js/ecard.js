@@ -21,6 +21,15 @@ $( document ).ready(function() {
 	var mw = 261;
 	var mh = 292;
 	
+	var lightning = new Image();
+	lightning.src = 'img/lightning.png';
+	var lx = -500;
+	var ly = 100;
+	var dlx = 2;
+	var dly = 0;
+	var lw = 414;
+	var lh = 173;
+	
 	
 	function init(){
 		//set context
@@ -34,24 +43,21 @@ $( document ).ready(function() {
 	
 	function draw(){
 		clear();
-		drawEmflake(x, y, w, h);
+		//drawEmflake(x, y, w, h);
+		drawCharacter(emflake, x, y, w, h);
 		dx = getRandomInt(-1,1);		
 		x += dx;
 		y += dy;
 		
-		drawMikeflake(mx, my, mw, mh);
+		drawCharacter(mikeflake, mx, my, mw, mh);
 		dmx = getRandomInt(-1,1);		
 		mx += dmx;
 		my += dmy;
 		
 	}
 	
-	function drawEmflake(x, y, w, h){
-		ctx.drawImage(emflake, x, y, w, h);
-	}
-	
-	function drawMikeflake(mx, my, mw, mh){
-		ctx.drawImage(mikeflake, mx, my, mw, mh);
+	function drawCharacter(name, x, y, w, h){
+		ctx.drawImage(name, x, y, w, h);
 	}
 	
 	function clear() {
