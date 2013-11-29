@@ -3,6 +3,7 @@ $( document ).ready(function() {
 	var WIDTH;
 	var HEIGHT;
 	var intervalId = 0;
+	
 	var emflake = new Image();
 	emflake.src = 'img/emflake.png';
 	var x = 100;
@@ -30,6 +31,15 @@ $( document ).ready(function() {
 	var lw = 414;
 	var lh = 173;
 	
+	var fry = new Image();
+	fry.src = 'img/fry.png';
+	var fx = -900;
+	var fy = 200;
+	var dfx = 2;
+	var dfy = 0;
+	var fw = 364;
+	var fh = 116;
+	
 	
 	function init(){
 		//set context
@@ -43,7 +53,6 @@ $( document ).ready(function() {
 	
 	function draw(){
 		clear();
-		//drawEmflake(x, y, w, h);
 		drawCharacter(emflake, x, y, w, h);
 		dx = getRandomInt(-1,1);		
 		x += dx;
@@ -53,6 +62,16 @@ $( document ).ready(function() {
 		dmx = getRandomInt(-1,1);		
 		mx += dmx;
 		my += dmy;
+		
+		drawCharacter(lightning, lx, ly, lw, lh);
+		dly = getRandomInt(-1, 1);
+		lx += dlx;
+		ly += dly;
+		
+		drawCharacter(fry, fx, fy, fw, fh);
+		dfy = getRandomInt(-1,1);		
+		fx += dfx;
+		fy += dfy;
 		
 	}
 	
