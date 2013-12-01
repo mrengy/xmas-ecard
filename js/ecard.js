@@ -5,6 +5,7 @@ $( document ).ready(function() {
 	var intervalId = 0;
 	var frame = 0;
 	
+	var emflakes = [];
 	var emflake = new Image();
 	emflake.src = 'img/emflake.png';
 	var x = x0 = 100;
@@ -14,6 +15,7 @@ $( document ).ready(function() {
 	var w = 306;
 	var h = 299;
 	
+	var mikeflakes = [];
 	var mikeflake = new Image();
 	mikeflake.src = 'img/mikeflake.png';
 	var mx = mx0 = 300;
@@ -58,6 +60,26 @@ $( document ).ready(function() {
 		frame ++;
 		clear();
 		
+		if (getRandomInt(1,60) == 1){
+			//var mikeflakeLength = mikeflakes.length;
+			mikeflakex = getRandomInt(0, WIDTH); 
+			mikeflakew = getRandomInt(50, 261);
+			mikeflakeh = (mikeflakew * 292 / 261);
+			mikeflakes.push({
+				thisx: mikeflakex,
+				thisy: my0,
+				thisw: mikeflakew,
+				thish: mikeflakeh				
+			});
+			//console.log(mikeflakes);
+		}
+		
+		$.each(mikeflakes, function (index, value){
+			drawCharacter(mikeflake, value.thisx, value.thisy, value.thisw, value.thish);
+			value.thisy += dmy;
+		});
+		
+		/*
 		drawCharacter(emflake, x, y, w, h);
 		dx = getRandomInt(-1,1);		
 		x += dx;
@@ -69,19 +91,9 @@ $( document ).ready(function() {
 		mx += dmx;
 		my += dmy;
 		if (my > HEIGHT) my = my0;
+		*/
 		
-		drawCharacter(lightning, lx, ly, lw, lh);
-		dly = getRandomInt(-1, 1);
-		lx += dlx;
-		ly += dly;
-		if (lx > WIDTH) lx = lx0;
-		
-		drawCharacter(fry, fx, fy, fw, fh);
-		dfy = getRandomInt(-1,1);		
-		fx += dfx;
-		fy += dfy;
-		if (fx > WIDTH) fx = fx0;
-		
+		/* Drawing snow builds */
 		if (frame > 300 && snow2alpha < 1) {
 			//draw snow 1
 			drawSnow1(snow1alpha);
@@ -98,6 +110,22 @@ $( document ).ready(function() {
 			//draw snow 3
 			drawSnow3(snow3alpha);
 			if (snow3alpha < 1) snow3alpha += snowFadeInRate;
+		}
+		
+		//only when snow build is done, draw the lightning
+		if (snow3alpha >= 1){
+		
+			drawCharacter(lightning, lx, ly, lw, lh);
+			dly = getRandomInt(-1, 1);
+			lx += dlx;
+			ly += dly;
+			if (lx > WIDTH) lx = lx0;
+		
+			drawCharacter(fry, fx, fy, fw, fh);
+			dfy = getRandomInt(-1,1);		
+			fx += dfx;
+			fy += dfy;
+			if (fx > WIDTH) fx = fx0;
 		}
 		
 	}
