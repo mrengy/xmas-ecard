@@ -77,6 +77,24 @@ $( document ).ready(function() {
 		fy += dfy;
 		if (fx > WIDTH) fx = fx0;
 		
+		//draw snow
+		ctx.beginPath();
+		ctx.moveTo(37.1, 810.9);
+		ctx.bezierCurveTo(104.4, 810.9, 119.7, 760.9, 186.0, 762.0);
+		ctx.bezierCurveTo(243.8, 762.9, 298.0, 810.9, 318.7, 812.0);
+		ctx.bezierCurveTo(339.3, 813.0, 414.0, 782.6, 435.0, 782.6);
+		ctx.bezierCurveTo(477.3, 782.6, 496.8, 810.2, 526.3, 810.9);
+		ctx.bezierCurveTo(577.3, 812.0, 731.6, 807.6, 770.8, 807.6);
+		ctx.bezierCurveTo(826.3, 807.6, 970.8, 759.8, 1018.7, 729.3);
+		ctx.bezierCurveTo(1048.0, 710.7, 1063.2, 768.5, 1063.2, 768.5);
+		ctx.lineTo(1006.7, 829.3);
+		ctx.lineTo(33.9, 843.5);
+		ctx.lineTo(37.1, 810.9);
+		ctx.closePath();
+		ctx.fillStyle = "rgb(255, 255, 255)";
+		ctx.fill();
+		ctx.restore();
+		
 	}
 	
 	function drawCharacter(name, x, y, w, h){
