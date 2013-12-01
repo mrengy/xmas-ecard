@@ -4,7 +4,6 @@ $( document ).ready(function() {
 	var HEIGHT;
 	var intervalId = 0;
 	var frame = 0;
-	var flakeFrequency = 300; //higher number = fewer flakes
 	
 	var emflakes = [];
 	var emflake = new Image();
@@ -44,8 +43,11 @@ $( document ).ready(function() {
 	var fw = 364;
 	var fh = 116;
 	
-	var snowFadeInRate = .003;
+	var firstSnowBuildFrame = 2000;
+	var snowFadeInRate = .002;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
+	
+	var flakeFrequency = 300; //higher number = fewer flakes
 	
 	function init(){
 		//set context
@@ -120,7 +122,7 @@ $( document ).ready(function() {
 		*/
 		
 		/* Drawing snow builds */
-		if (frame > 300 && snow2alpha < 1) {
+		if (frame > firstSnowBuildFrame && snow2alpha < 1) {
 			//draw snow 1
 			drawSnow1(snow1alpha);
 			if (snow1alpha < 1) snow1alpha += snowFadeInRate;
