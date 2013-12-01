@@ -4,6 +4,7 @@ $( document ).ready(function() {
 	var HEIGHT;
 	var intervalId = 0;
 	var frame = 0;
+	var flakeFrequency = 300; //higher number = fewer flakes
 	
 	var emflakes = [];
 	var emflake = new Image();
@@ -60,8 +61,8 @@ $( document ).ready(function() {
 		frame ++;
 		clear();
 		
-		if (getRandomInt(1,60) == 1){
-			//var mikeflakeLength = mikeflakes.length;
+		//create a new mikeflake
+		if (getRandomInt(1, flakeFrequency) == 1){
 			mikeflakex = getRandomInt(0, WIDTH); 
 			mikeflakew = getRandomInt(50, 261);
 			mikeflakeh = (mikeflakew * 292 / 261);
@@ -74,9 +75,34 @@ $( document ).ready(function() {
 			//console.log(mikeflakes);
 		}
 		
+		//move all mikeflakes
 		$.each(mikeflakes, function (index, value){
-			drawCharacter(mikeflake, value.thisx, value.thisy, value.thisw, value.thish);
-			value.thisy += dmy;
+			if (value.thisy <= HEIGHT){
+				drawCharacter(mikeflake, value.thisx, value.thisy, value.thisw, value.thish);
+				value.thisy += dmy;
+			}
+		});
+		
+		//create a new random emflake
+		if (getRandomInt(1,flakeFrequency) == 1){
+			emflakex = getRandomInt(0, WIDTH); 
+			emflakew = getRandomInt(50, 306);
+			emflakeh = (emflakew * 299 / 306);
+			emflakes.push({
+				thisx: emflakex,
+				thisy: y0,
+				thisw: emflakew,
+				thish: emflakeh				
+			});
+			//console.log(mikeflakes);
+		}
+		
+		//move all emflakes
+		$.each(emflakes, function (index, value){
+			if (value.thisy <= HEIGHT){
+				drawCharacter(emflake, value.thisx, value.thisy, value.thisw, value.thish);
+				value.thisy += dmy;
+			}
 		});
 		
 		/*
