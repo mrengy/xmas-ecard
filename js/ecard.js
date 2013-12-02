@@ -10,8 +10,6 @@ $( document ).ready(function() {
 	emflake.src = 'img/emflake.png';
 	var ex = ex0 = 100;
 	var ey = ey0 = -299;
-	var dex = 0;
-	var dey = 2;
 	var ew = 306;
 	var eh = 299;
 	
@@ -20,8 +18,6 @@ $( document ).ready(function() {
 	mikeflake.src = 'img/mikeflake.png';
 	var mx = mx0 = 300;
 	var my = my0 = -641;
-	var dmx = 0;
-	var dmy = 2;
 	var mw = 261;
 	var mh = 292;
 	
@@ -49,6 +45,8 @@ $( document ).ready(function() {
 	
 	var flakeFrequency = 300; //higher number = fewer flakes
 	
+	var flakeIncrement = 4; //base speed at which flakes fall
+	
 	function init(){
 		//set context
 		ctx = $("canvas#card")[0].getContext('2d');
@@ -68,11 +66,13 @@ $( document ).ready(function() {
 			mikeflakew = getRandomInt(50, 261);
 			mikeflakeh = (mikeflakew * 292 / 261);
 			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
+			mikeflakeIncrement = flakeIncrement * (mikeflakew / 306);
 			mikeflakes.push({
 				thisx: mikeflakex,
 				thisy: my0,
 				thisw: mikeflakew,
-				thish: mikeflakeh				
+				thish: mikeflakeh,
+				thisIncrement: mikeflakeIncrement				
 			});
 		}
 		
@@ -80,7 +80,7 @@ $( document ).ready(function() {
 		$.each(mikeflakes, function (index, value){
 			if (value.thisy <= HEIGHT){
 				drawCharacter(mikeflake, value.thisx, value.thisy, value.thisw, value.thish);
-				value.thisy += dmy;
+				value.thisy += value.thisIncrement;
 			}
 		});
 		
@@ -89,11 +89,13 @@ $( document ).ready(function() {
 			emflakew = getRandomInt(50, 306);
 			emflakeh = (emflakew * 299 / 306);
 			emflakex = getRandomInt(0 - (emflakew/2), WIDTH - (emflakew/2));
+			emflakeIncrement = flakeIncrement * (emflakew / 306);
 			emflakes.push({
 				thisx: emflakex,
 				thisy: ey0,
 				thisw: emflakew,
-				thish: emflakeh				
+				thish: emflakeh,	
+				thisIncrement: emflakeIncrement		
 			});
 		}
 		
@@ -101,23 +103,9 @@ $( document ).ready(function() {
 		$.each(emflakes, function (index, value){
 			if (value.thisy <= HEIGHT){
 				drawCharacter(emflake, value.thisx, value.thisy, value.thisw, value.thish);
-				value.thisy += dmy;
+				value.thisy += value.thisIncrement;
 			}
 		});
-		
-		/*
-		drawCharacter(emflake, ex, ey, ew, eh);
-		dex = getRandomInt(-1,1);		
-		ex += dx;
-		ey += dy;
-		if (ey > HEIGHT)	ey = ey0;
-		
-		drawCharacter(mikeflake, mx, my, mw, mh);
-		dmx = getRandomInt(-1,1);		
-		mx += dmx;
-		my += dmy;
-		if (my > HEIGHT) my = my0;
-		*/
 		
 		/* Drawing snow builds */
 		if (frame > firstSnowBuildFrame && snow2alpha < 1) {
