@@ -8,12 +8,12 @@ $( document ).ready(function() {
 	var emflakes = [];
 	var emflake = new Image();
 	emflake.src = 'img/emflake.png';
-	var x = x0 = 100;
-	var y = y0 = -299;
-	var dx = 0;
-	var dy = 2;
-	var w = 306;
-	var h = 299;
+	var ex = ex0 = 100;
+	var ey = ey0 = -299;
+	var dex = 0;
+	var dey = 2;
+	var ew = 306;
+	var eh = 299;
 	
 	var mikeflakes = [];
 	var mikeflake = new Image();
@@ -64,17 +64,16 @@ $( document ).ready(function() {
 		clear();
 		
 		//create a new mikeflake
-		if (getRandomInt(1, flakeFrequency) == 1){
-			mikeflakex = getRandomInt(0, WIDTH); 
+		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, 261);
 			mikeflakeh = (mikeflakew * 292 / 261);
+			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
 			mikeflakes.push({
 				thisx: mikeflakex,
 				thisy: my0,
 				thisw: mikeflakew,
 				thish: mikeflakeh				
 			});
-			//console.log(mikeflakes);
 		}
 		
 		//move all mikeflakes
@@ -92,11 +91,10 @@ $( document ).ready(function() {
 			emflakeh = (emflakew * 299 / 306);
 			emflakes.push({
 				thisx: emflakex,
-				thisy: y0,
+				thisy: ey0,
 				thisw: emflakew,
 				thish: emflakeh				
 			});
-			//console.log(mikeflakes);
 		}
 		
 		//move all emflakes
