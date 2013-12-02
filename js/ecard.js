@@ -67,7 +67,7 @@ $( document ).ready(function() {
 		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, 261);
 			mikeflakeh = (mikeflakew * 292 / 261);
-			
+			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
 			mikeflakes.push({
 				thisx: mikeflakex,
 				thisy: my0,
