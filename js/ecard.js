@@ -10,8 +10,13 @@ $( document ).ready(function() {
 	emflake.src = 'img/emflake.png';
 	var ex = ex0 = 100;
 	var ey = ey0 = -299;
-	var ew = 306;
-	var eh = 299;
+	var ew;
+	var eh;
+	//set natural width and natural height once the image is loaded
+	emflake.addEventListener('load', function(){
+		ew = emflake.naturalWidth;
+		eh = emflake.naturalHeight;
+	}, false);
 	
 	var mikeflakes = [];
 	var mikeflake = new Image();
@@ -20,7 +25,7 @@ $( document ).ready(function() {
 	var my = my0 = -641;
 	var mw;
 	var mh;
-	//set natural width and natural height
+	//set natural width and natural height once the image is loaded
 	mikeflake.addEventListener('load', function(){
 		mw = mikeflake.naturalWidth;
 		mh = mikeflake.naturalHeight;
@@ -76,7 +81,7 @@ $( document ).ready(function() {
 			mikeflakew = getRandomInt(50, mw);
 			mikeflakeh = (mikeflakew * mh / mw);
 			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
-			mikeflakeIncrement = flakeIncrement * (mikeflakew / 306);
+			mikeflakeIncrement = flakeIncrement * (mikeflakew / mw);
 			mikeflakes.push({
 				thisx: mikeflakex,
 				thisy: my0,
@@ -96,10 +101,10 @@ $( document ).ready(function() {
 		
 		//create a new random emflake
 		if (getRandomInt(1,flakeFrequency) == 1){
-			emflakew = getRandomInt(50, 306);
-			emflakeh = (emflakew * 299 / 306);
+			emflakew = getRandomInt(50, ew);
+			emflakeh = (emflakew * eh / ew);
 			emflakex = getRandomInt(0 - (emflakew/2), WIDTH - (emflakew/2));
-			emflakeIncrement = flakeIncrement * (emflakew / 306);
+			emflakeIncrement = flakeIncrement * (emflakew / ew);
 			emflakes.push({
 				thisx: emflakex,
 				thisy: ey0,
