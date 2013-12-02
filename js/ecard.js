@@ -67,7 +67,7 @@ $( document ).ready(function() {
 		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, 261);
 			mikeflakeh = (mikeflakew * 292 / 261);
-			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
+			
 			mikeflakes.push({
 				thisx: mikeflakex,
 				thisy: my0,
@@ -86,9 +86,9 @@ $( document ).ready(function() {
 		
 		//create a new random emflake
 		if (getRandomInt(1,flakeFrequency) == 1){
-			emflakex = getRandomInt(0, WIDTH); 
 			emflakew = getRandomInt(50, 306);
 			emflakeh = (emflakew * 299 / 306);
+			emflakex = getRandomInt(0 - (emflakew/2), WIDTH - (emflakew/2));
 			emflakes.push({
 				thisx: emflakex,
 				thisy: ey0,
@@ -106,11 +106,11 @@ $( document ).ready(function() {
 		});
 		
 		/*
-		drawCharacter(emflake, x, y, w, h);
-		dx = getRandomInt(-1,1);		
-		x += dx;
-		y += dy;
-		if (y > HEIGHT)	y = y0;
+		drawCharacter(emflake, ex, ey, ew, eh);
+		dex = getRandomInt(-1,1);		
+		ex += dx;
+		ey += dy;
+		if (ey > HEIGHT)	ey = ey0;
 		
 		drawCharacter(mikeflake, mx, my, mw, mh);
 		dmx = getRandomInt(-1,1);		
