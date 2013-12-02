@@ -27,8 +27,12 @@ $( document ).ready(function() {
 	var ly = ly0 = 100;
 	var dlx = 2;
 	var dly = 0;
-	var lw = 414;
-	var lh = 173;
+	var lw;
+	var lh;
+	lightning.addEventListener('load', function(){
+		lw = lightning.naturalWidth;
+		lh = lightning.naturalHeight;
+	}, false);
 	
 	var fry = new Image();
 	fry.src = 'img/fry.png';
@@ -39,7 +43,7 @@ $( document ).ready(function() {
 	var fw = 364;
 	var fh = 116;
 	
-	var firstSnowBuildFrame = 2000;
+	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
 	
