@@ -51,8 +51,13 @@ $( document ).ready(function() {
 	var fy = fy0 = 200;
 	var dfx = 2;
 	var dfy = 0;
-	var fw = 364;
-	var fh = 116;
+	var fw;
+	var fh;
+	//set natural width and natural height once the image is loaded
+	fry.addEventListener('load', function(){
+		fw = fry.naturalWidth;
+		fh = fry.naturalHeight;
+	}, false);
 	
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
