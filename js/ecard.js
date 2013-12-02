@@ -18,8 +18,13 @@ $( document ).ready(function() {
 	mikeflake.src = 'img/mikeflake.png';
 	var mx = mx0 = 300;
 	var my = my0 = -641;
-	var mw = 261;
-	var mh = 292;
+	var mw;
+	var mh;
+	//set natural width and natural height
+	mikeflake.addEventListener('load', function(){
+		mw = mikeflake.naturalWidth;
+		mh = mikeflake.naturalHeight;
+	}, false);
 	
 	var lightning = new Image();
 	lightning.src = 'img/lightning.png';
@@ -29,6 +34,7 @@ $( document ).ready(function() {
 	var dly = 0;
 	var lw;
 	var lh;
+	//set natural width and natural height once the image is loaded
 	lightning.addEventListener('load', function(){
 		lw = lightning.naturalWidth;
 		lh = lightning.naturalHeight;
@@ -67,8 +73,8 @@ $( document ).ready(function() {
 		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
-			mikeflakew = getRandomInt(50, 261);
-			mikeflakeh = (mikeflakew * 292 / 261);
+			mikeflakew = getRandomInt(50, mw);
+			mikeflakeh = (mikeflakew * mh / mw);
 			mikeflakex = getRandomInt(0 - (mikeflakew/2), WIDTH - (mikeflakew/2));
 			mikeflakeIncrement = flakeIncrement * (mikeflakew / 306);
 			mikeflakes.push({
