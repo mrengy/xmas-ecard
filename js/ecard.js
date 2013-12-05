@@ -101,6 +101,11 @@ $( document ).ready(function() {
 			if (value.thisy <= HEIGHT){
 				drawCharacter(mikeflake, value.thisx, value.thisy, value.thisw, value.thish);
 				value.thisy += value.thisIncrement;
+			} 
+			else {
+				//remove the mikeflake from the array if it is off screen
+				mikeflakes.splice(index, 1);
+				return false;
 			}
 		});
 		
@@ -124,6 +129,11 @@ $( document ).ready(function() {
 			if (value.thisy <= HEIGHT){
 				drawCharacter(emflake, value.thisx, value.thisy, value.thisw, value.thish);
 				value.thisy += value.thisIncrement;
+			} 
+			else {
+				//remove the emflake from the array if it is off screen
+				emflakes.splice(index, 1);
+				return false;
 			}
 		});
 		
