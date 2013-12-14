@@ -1,5 +1,5 @@
 canvas#card{
 	background: #CCC;
-	background-image: url('http://placekitten.com/1000/800');
+	background-image: url('../img/backgrounds/em.jpg');
 	background-repeat: no-repeat;
 }
