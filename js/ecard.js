@@ -83,6 +83,66 @@ $( document ).ready(function() {
 		frame ++;
 		clear();
 		
+		//only when snow build is done, draw the lightning
+		if (snow3alpha >= 1){
+			
+			//create a new lightning
+			if (getRandomInt(1, flakeFrequency) == 1){ 
+				lightningw = getRandomInt(80, lw);
+				lightningh = (lightningw * lh / lw);
+				lightningy = getRandomInt(0 - (lightningh/2), HEIGHT - (lightningh/2));
+				lightningIncrement = flakeIncrement * (lightningw / lw);
+				lightnings.push({
+					thisx: lx0,
+					thisy: lightningy,
+					thisw: lightningw,
+					thish: lightningh,
+					thisIncrement: lightningIncrement				
+				});
+			}
+
+			//move all lightnings
+			$.each(lightnings, function (index, value){
+				if (value.thisx <= WIDTH){
+					drawCharacter(lightning, value.thisx, value.thisy, value.thisw, value.thish);
+					value.thisx += value.thisIncrement;
+				} 
+				else {
+					//remove the mikeflake from the array if it is off screen
+					lightnings.splice(index, 1);
+					return false;
+				}
+			});
+			
+			//create a new fry
+			if (getRandomInt(1, flakeFrequency) == 1){ 
+				fryw = getRandomInt(20, fw);
+				fryh = (fryw * fh / fw);
+				fryy = getRandomInt(0 - (fryh/2), HEIGHT - (fryh/2));
+				fryIncrement = flakeIncrement * (fryw / fw);
+				frys.push({
+					thisx: fx0,
+					thisy: fryy,
+					thisw: fryw,
+					thish: fryh,
+					thisIncrement: fryIncrement				
+				});
+			}
+
+			//move all frys
+			$.each(frys, function (index, value){
+				if (value.thisx <= WIDTH){
+					drawCharacter(fry, value.thisx, value.thisy, value.thisw, value.thish);
+					value.thisx += value.thisIncrement;
+				} 
+				else {
+					//remove the mikeflake from the array if it is off screen
+					frys.splice(index, 1);
+					return false;
+				}
+			});
+		} //end conditional for drawing lightning
+		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, mw);
@@ -158,81 +218,7 @@ $( document ).ready(function() {
 			if (snow3alpha < 1) snow3alpha += snowFadeInRate;
 		}
 		
-		//only when snow build is done, draw the lightning
-		if (snow3alpha >= 1){
-			
-			//create a new lightning
-			if (getRandomInt(1, flakeFrequency) == 1){ 
-				lightningw = getRandomInt(80, lw);
-				lightningh = (lightningw * lh / lw);
-				lightningy = getRandomInt(0 - (lightningh/2), HEIGHT - (lightningh/2));
-				lightningIncrement = flakeIncrement * (lightningw / lw);
-				lightnings.push({
-					thisx: lx0,
-					thisy: lightningy,
-					thisw: lightningw,
-					thish: lightningh,
-					thisIncrement: lightningIncrement				
-				});
-			}
-
-			//move all lightnings
-			$.each(lightnings, function (index, value){
-				if (value.thisx <= WIDTH){
-					drawCharacter(lightning, value.thisx, value.thisy, value.thisw, value.thish);
-					value.thisx += value.thisIncrement;
-				} 
-				else {
-					//remove the mikeflake from the array if it is off screen
-					lightnings.splice(index, 1);
-					return false;
-				}
-			});
-			
-			//create a new fry
-			if (getRandomInt(1, flakeFrequency) == 1){ 
-				fryw = getRandomInt(20, fw);
-				fryh = (fryw * fh / fw);
-				fryy = getRandomInt(0 - (fryh/2), HEIGHT - (fryh/2));
-				fryIncrement = flakeIncrement * (fryw / fw);
-				frys.push({
-					thisx: fx0,
-					thisy: fryy,
-					thisw: fryw,
-					thish: fryh,
-					thisIncrement: fryIncrement				
-				});
-			}
-
-			//move all frys
-			$.each(frys, function (index, value){
-				if (value.thisx <= WIDTH){
-					drawCharacter(fry, value.thisx, value.thisy, value.thisw, value.thish);
-					value.thisx += value.thisIncrement;
-				} 
-				else {
-					//remove the mikeflake from the array if it is off screen
-					frys.splice(index, 1);
-					return false;
-				}
-			});
-			
-			/*
-			drawCharacter(lightning, lx, ly, lw, lh);
-			dly = getRandomInt(-1, 1);
-			lx += dlx;
-			ly += dly;
-			if (lx > WIDTH) lx = lx0;
-			
-			drawCharacter(fry, fx, fy, fw, fh);
-			dfy = getRandomInt(-1,1);		
-			fx += dfx;
-			fy += dfy;
-			if (fx > WIDTH) fx = fx0;
-			*/
-		}
-		
-	}
+	} //end draw
 	
 	function drawCharacter(name, x, y, w, h){
 		ctx.drawImage(name, x, y, w, h);
