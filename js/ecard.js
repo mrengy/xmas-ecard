@@ -271,7 +271,9 @@ $( document ).ready(function() {
 			
 				if (k1peaked == false && k1alpha < 1) k1alpha += keplerFadeRate;
 				else if (k1peaked == false && k1alpha >= 1) k1peaked = true;
-				
+				if (k1peaked == true && typeof k1peakedFrame === 'undefined') k1peakedFrame = frame;
+				if (frame >= (k1peakedFrame + keplerPauseFrames ) ) k1alpha -= keplerFadeRate;
+				if (k1peaked == true && k1alpha <= 0) k1done = true; k1doneFrame = frame;
 			}
 		}
 		
