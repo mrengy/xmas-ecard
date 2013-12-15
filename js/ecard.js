@@ -106,7 +106,7 @@ $( document ).ready(function() {
 	var kepler4 = new Image();
 	kepler4.src = 'img/kepler4.png';
 	var k4x;
-	var k4y = 500;
+	var k4y = 510;
 	var k4w;
 	var k4h;
 	//set natural width and natural height once the image is loaded
