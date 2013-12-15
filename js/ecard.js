@@ -75,13 +75,16 @@ $( document ).ready(function() {
 		kax = WIDTH - kaw;
 	}, false);
 	
-	
+	//snow build variables
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
 	var lastSnowBuildFrame;
 	
+	//kepler variables
 	var framesBetweenSnowBuildAndKepler = 20;
+	var keplerFadeRate = .002;
+	
 	
 	var flakeFrequency = 300; //higher number = fewer flakes
 	
@@ -234,10 +237,10 @@ $( document ).ready(function() {
 			//draw snow 3
 			drawSnow3(snow3alpha);
 			if (snow3alpha < 1) snow3alpha += snowFadeInRate;
+			
 			//set the frame for when the snow build completes
 			else if (snow3alpha >=1 && typeof lastSnowBuildFrame === 'undefined') {
 				lastSnowBuildFrame = frame;
-				console.log(lastSnowBuildFrame);
 			}
 		}
 		
