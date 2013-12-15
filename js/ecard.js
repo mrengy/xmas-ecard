@@ -139,7 +139,7 @@ $( document ).ready(function() {
 	
 	//kepler variables
 	var framesBetweenSnowBuildAndKepler = 20;
-	var keplerFadeRate = .01;
+	var keplerFadeRate = .005;
 	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha =0;
 	var keplerPauseFrames = 200;
 	var k1peaked = k2peaked = k3peaked = k4peaked = k5peaked = false;
