@@ -75,6 +75,20 @@ $( document ).ready(function() {
 		k1x = WIDTH - k1w;
 	}, false);
 	
+	var kepler2 = new Image();
+	kepler2.src = 'img/kepler2.png';
+	var k2x;
+	var k2y = 430;
+	var k2w;
+	var k2h;
+	//set natural width and natural height once the image is loaded
+	kepler2.addEventListener('load', function(){
+		k2w = kepler2.naturalWidth;
+		k2h = kepler2.naturalHeight;
+		//set kepler x position to be at the right edge of the canvas
+		k2x = WIDTH - k2w;
+	}, false);
+	
 	//snow build variables
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
@@ -259,7 +273,7 @@ $( document ).ready(function() {
 		}
 		
 		
-		//draw kepler
+		//draw kepler 1
 		if (frame >= (lastSnowBuildFrame + framesBetweenSnowBuildAndKepler) ){
 			if (k1done == false){
 				ctx.save();
@@ -267,13 +281,30 @@ $( document ).ready(function() {
 				drawCharacter(kepler1, k1x, k1y, k1w, k1h);
 				ctx.restore();
 				
-				console.log(k1alpha);
+				//console.log(k1alpha);
 			
 				if (k1peaked == false && k1alpha < 1) k1alpha += keplerFadeRate;
 				else if (k1peaked == false && k1alpha >= 1) k1peaked = true;
 				if (k1peaked == true && typeof k1peakedFrame === 'undefined') k1peakedFrame = frame;
 				if (frame >= (k1peakedFrame + keplerPauseFrames ) ) k1alpha -= keplerFadeRate;
 				if (k1peaked == true && k1alpha <= 0) k1done = true; k1doneFrame = frame;
+			}
+		}
+		//draw kepler 2
+		if (frame >= (k1peakedFrame + keplerPauseFrames) ){
+			if (k2done == false){
+				ctx.save();
+				ctx.globalAlpha = k2alpha;
+				drawCharacter(kepler2, k2x, k2y, k2w, k2h);
+				ctx.restore();
+				
+				//console.log(k2alpha);
+			
+				if (k2peaked == false && k2alpha < 1) k2alpha += keplerFadeRate;
+				else if (k2peaked == false && k2alpha >= 1) k2peaked = true;
+				if (k2peaked == true && typeof k2peakedFrame === 'undefined') k2peakedFrame = frame;
+				if (frame >= (k2peakedFrame + keplerPauseFrames ) ) k2alpha -= keplerFadeRate;
+				if (k2peaked == true && k2alpha <= 0) k2done = true; k2doneFrame = frame;
 			}
 		}
 		
