@@ -89,6 +89,48 @@ $( document ).ready(function() {
 		k2x = WIDTH - k2w;
 	}, false);
 	
+	var kepler3 = new Image();
+	kepler3.src = 'img/kepler3.png';
+	var k3x;
+	var k3y = 430;
+	var k3w;
+	var k3h;
+	//set natural width and natural height once the image is loaded
+	kepler3.addEventListener('load', function(){
+		k3w = kepler3.naturalWidth;
+		k3h = kepler3.naturalHeight;
+		//set kepler x position to be at the right edge of the canvas
+		k3x = WIDTH - k3w;
+	}, false);
+	
+	var kepler4 = new Image();
+	kepler4.src = 'img/kepler4.png';
+	var k4x;
+	var k4y = 440;
+	var k4w;
+	var k4h;
+	//set natural width and natural height once the image is loaded
+	kepler4.addEventListener('load', function(){
+		k4w = kepler4.naturalWidth;
+		k4h = kepler4.naturalHeight;
+		//set kepler x position to be at the right edge of the canvas
+		k4x = WIDTH - k4w;
+	}, false);
+	
+	var kepler5 = new Image();
+	kepler5.src = 'img/kepler5.png';
+	var k5x;
+	var k5y = 440;
+	var k5w;
+	var k5h;
+	//set natural width and natural height once the image is loaded
+	kepler5.addEventListener('load', function(){
+		k5w = kepler5.naturalWidth;
+		k5h = kepler5.naturalHeight;
+		//set kepler x position to be at the right edge of the canvas
+		k5x = WIDTH - k5w;
+	}, false);
+	
 	//snow build variables
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
@@ -305,6 +347,55 @@ $( document ).ready(function() {
 				if (k2peaked == true && typeof k2peakedFrame === 'undefined') k2peakedFrame = frame;
 				if (frame >= (k2peakedFrame + keplerPauseFrames ) ) k2alpha -= keplerFadeRate;
 				if (k2peaked == true && k2alpha <= 0) k2done = true; k2doneFrame = frame;
+			}
+		}
+		//draw kepler 3
+		if (frame >= (k2peakedFrame + keplerPauseFrames) ){
+			if (k3done == false){
+				ctx.save();
+				ctx.globalAlpha = k3alpha;
+				drawCharacter(kepler3, k3x, k3y, k3w, k3h);
+				ctx.restore();
+				
+				//console.log(k3alpha);
+			
+				if (k3peaked == false && k3alpha < 1) k3alpha += keplerFadeRate;
+				else if (k3peaked == false && k3alpha >= 1) k3peaked = true;
+				if (k3peaked == true && typeof k3peakedFrame === 'undefined') k3peakedFrame = frame;
+				if (frame >= (k3peakedFrame + keplerPauseFrames ) ) k3alpha -= keplerFadeRate;
+				if (k3peaked == true && k3alpha <= 0) k3done = true; k3doneFrame = frame;
+			}
+		}
+		//draw kepler 4
+		if (frame >= (k3peakedFrame + keplerPauseFrames) ){
+			if (k4done == false){
+				ctx.save();
+				ctx.globalAlpha = k4alpha;
+				drawCharacter(kepler4, k4x, k4y, k4w, k4h);
+				ctx.restore();
+				
+				//console.log(k4alpha);
+			
+				if (k4peaked == false && k4alpha < 1) k4alpha += keplerFadeRate;
+				else if (k4peaked == false && k4alpha >= 1) k4peaked = true;
+				if (k4peaked == true && typeof k4peakedFrame === 'undefined') k4peakedFrame = frame;
+				if (frame >= (k4peakedFrame + keplerPauseFrames ) ) k4alpha -= keplerFadeRate;
+				if (k4peaked == true && k4alpha <= 0) k4done = true; k4doneFrame = frame;
+			}
+		}
+		//draw kepler 5
+		if (frame >= (k4peakedFrame + keplerPauseFrames) ){
+			if (k5done == false){
+				ctx.save();
+				ctx.globalAlpha = k5alpha;
+				drawCharacter(kepler5, k5x, k5y, k5w, k5h);
+				ctx.restore();
+				
+				//console.log(k5alpha);
+			
+				if (k5peaked == false && k5alpha < 1) k5alpha += keplerFadeRate;
+				else if (k5peaked == false && k5alpha >= 1) k5peaked = true;
+				if (k5peaked == true && typeof k5peakedFrame === 'undefined') k5peakedFrame = frame; k5done = true;
 			}
 		}
 		
