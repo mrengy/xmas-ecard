@@ -61,6 +61,17 @@ $( document ).ready(function() {
 		fh = fry.naturalHeight;
 	}, false);
 	
+	var kepler_a = new Image();
+	kepler_a.src = 'img/kepler-a.png';
+	var kax = 900;
+	var kay = 430;
+	//set natural width and natural height once the image is loaded
+	kepler_a.addEventListener('load', function(){
+		kaw = kepler_a.naturalWidth;
+		kah = kepler_a.naturalHeight;
+	}, false);
+	
+	
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
@@ -217,6 +228,10 @@ $( document ).ready(function() {
 			drawSnow3(snow3alpha);
 			if (snow3alpha < 1) snow3alpha += snowFadeInRate;
 		}
+		
+		//draw kepler
+		kax = WIDTH - kaw;
+		drawCharacter(kepler_a, kax, kay, kaw, kah);
 		
 	} //end draw
 	
