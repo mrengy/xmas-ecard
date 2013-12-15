@@ -63,18 +63,25 @@ $( document ).ready(function() {
 	
 	var kepler_a = new Image();
 	kepler_a.src = 'img/kepler-a.png';
-	var kax = 900;
+	var kax;
 	var kay = 430;
+	var kaw;
+	var kah;
 	//set natural width and natural height once the image is loaded
 	kepler_a.addEventListener('load', function(){
 		kaw = kepler_a.naturalWidth;
 		kah = kepler_a.naturalHeight;
+		//set kepler x position to be at the right edge of the canvas
+		kax = WIDTH - kaw;
 	}, false);
 	
 	
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
+	var lastSnowBuildFrame;
+	
+	var framesBetweenSnowBuildAndKepler = 20;
 	
 	var flakeFrequency = 300; //higher number = fewer flakes
 	
@@ -216,22 +223,29 @@ $( document ).ready(function() {
 			drawSnow1(snow1alpha);
 			if (snow1alpha < 1) snow1alpha += snowFadeInRate;
 		}
-		
+
 		if (snow1alpha >= 1 && snow3alpha < 1){
 			//draw snow 2
 			drawSnow2(snow2alpha);
 			if (snow2alpha < 1) snow2alpha += snowFadeInRate;
 		}
-		
+
 		if (snow2alpha >= 1){
 			//draw snow 3
 			drawSnow3(snow3alpha);
 			if (snow3alpha < 1) snow3alpha += snowFadeInRate;
+			//set the frame for when the snow build completes
+			else if (snow3alpha >=1 && typeof lastSnowBuildFrame === 'undefined') {
+				lastSnowBuildFrame = frame;
+				console.log(lastSnowBuildFrame);
+			}
 		}
 		
+		
 		//draw kepler
-		kax = WIDTH - kaw;
-		drawCharacter(kepler_a, kax, kay, kaw, kah);
+		if (frame >= (lastSnowBuildFrame + framesBetweenSnowBuildAndKepler) ){
+			drawCharacter(kepler_a, kax, kay, kaw, kah);
+		}
 		
 	} //end draw
 	
