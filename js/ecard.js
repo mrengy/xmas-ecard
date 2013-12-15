@@ -85,9 +85,17 @@ $( document ).ready(function() {
 	var framesBetweenSnowBuildAndKepler = 20;
 	var keplerFadeRate = .01;
 	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha =0;
+	var keplerPauseFrames = 200;
+	var k1peaked = k2peaked = k3peaked = k4peaked = k5peaked = false;
+	var k1done = k2done = k3done = k4done = k5done = false;
+	var k1doneFrame;
+	var k2doneFrame;
+	var k3doneFrame;
+	var k4doneFrame;
+	var k5doneFrame;
 	
+	//flake variables
 	var flakeFrequency = 300; //higher number = fewer flakes
-	
 	var flakeIncrement = 4; //base speed at which flakes fall
 	
 	function init(){
