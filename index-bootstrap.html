@@ -10,22 +10,31 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/ecard.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
 
-        <div id="wrapper">
-	        <h1>Season's greetings!</h1>
-			<canvas id="card" width="1000" height="750"></canvas>
-	        <p>Wishing you a happy and whimsical holiday season,</p>
-			<p><em>Emily, Mike, Kepler, &amp; The Lightning</em></p>
-	      </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Season's greetings!</h1>
+		<canvas id="card" width="1000" height="750"></canvas>
+        <p>Wishing you a happy and whimsical holiday season,</p>
+		<p><em>Emily, Mike, Kepler, &amp; The Lightning</em></p>
+      </div>
+    </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/ecard.js"></script>
 
