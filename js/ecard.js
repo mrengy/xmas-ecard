@@ -92,7 +92,7 @@ $( document ).ready(function() {
 	var kepler3 = new Image();
 	kepler3.src = 'img/kepler3.png';
 	var k3x;
-	var k3y = 430;
+	var k3y = 530;
 	var k3w;
 	var k3h;
 	//set natural width and natural height once the image is loaded
@@ -106,7 +106,7 @@ $( document ).ready(function() {
 	var kepler4 = new Image();
 	kepler4.src = 'img/kepler4.png';
 	var k4x;
-	var k4y = 440;
+	var k4y = 500;
 	var k4w;
 	var k4h;
 	//set natural width and natural height once the image is loaded
@@ -120,7 +120,7 @@ $( document ).ready(function() {
 	var kepler5 = new Image();
 	kepler5.src = 'img/kepler5.png';
 	var k5x;
-	var k5y = 440;
+	var k5y = 540;
 	var k5w;
 	var k5h;
 	//set natural width and natural height once the image is loaded
