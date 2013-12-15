@@ -87,12 +87,18 @@ $( document ).ready(function() {
 	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha =0;
 	var keplerPauseFrames = 200;
 	var k1peaked = k2peaked = k3peaked = k4peaked = k5peaked = false;
+	var k1peakedFrame;
+	var k2peakedFrame;
+	var k3peakedFrame;
+	var k4peakedFrame;
+	var k5peakedFrame;
 	var k1done = k2done = k3done = k4done = k5done = false;
 	var k1doneFrame;
 	var k2doneFrame;
 	var k3doneFrame;
 	var k4doneFrame;
 	var k5doneFrame;
+	
 	
 	//flake variables
 	var flakeFrequency = 300; //higher number = fewer flakes
@@ -255,13 +261,18 @@ $( document ).ready(function() {
 		
 		//draw kepler
 		if (frame >= (lastSnowBuildFrame + framesBetweenSnowBuildAndKepler) ){
-			ctx.save();
-			ctx.globalAlpha = k1alpha;
-			drawCharacter(kepler1, k1x, k1y, k1w, k1h);
-			ctx.restore();
+			if (k1done == false){
+				ctx.save();
+				ctx.globalAlpha = k1alpha;
+				drawCharacter(kepler1, k1x, k1y, k1w, k1h);
+				ctx.restore();
+				
+				console.log(k1alpha);
 			
-			//increment transparency
-			k1alpha += keplerFadeRate;
+				if (k1peaked == false && k1alpha < 1) k1alpha += keplerFadeRate;
+				else if (k1peaked == false && k1alpha >= 1) k1peaked = true;
+				
+			}
 		}
 		
 	} //end draw
