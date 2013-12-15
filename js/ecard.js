@@ -61,18 +61,18 @@ $( document ).ready(function() {
 		fh = fry.naturalHeight;
 	}, false);
 	
-	var kepler_a = new Image();
-	kepler_a.src = 'img/kepler-a.png';
-	var kax;
-	var kay = 430;
-	var kaw;
-	var kah;
+	var kepler1 = new Image();
+	kepler1.src = 'img/kepler1.png';
+	var k1x;
+	var k1y = 430;
+	var k1w;
+	var k1h;
 	//set natural width and natural height once the image is loaded
-	kepler_a.addEventListener('load', function(){
-		kaw = kepler_a.naturalWidth;
-		kah = kepler_a.naturalHeight;
+	kepler1.addEventListener('load', function(){
+		k1w = kepler1.naturalWidth;
+		k1h = kepler1.naturalHeight;
 		//set kepler x position to be at the right edge of the canvas
-		kax = WIDTH - kaw;
+		k1x = WIDTH - k1w;
 	}, false);
 	
 	//snow build variables
@@ -247,7 +247,7 @@ $( document ).ready(function() {
 		
 		//draw kepler
 		if (frame >= (lastSnowBuildFrame + framesBetweenSnowBuildAndKepler) ){
-			drawCharacter(kepler_a, kax, kay, kaw, kah);
+			drawCharacter(kepler1, k1x, k1y, k1w, k1h);
 		}
 		
 	} //end draw
