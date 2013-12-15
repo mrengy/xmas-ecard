@@ -329,7 +329,7 @@ $( document ).ready(function() {
 				else if (k1peaked == false && k1alpha >= 1) k1peaked = true;
 				if (k1peaked == true && typeof k1peakedFrame === 'undefined') k1peakedFrame = frame;
 				if (frame >= (k1peakedFrame + keplerPauseFrames ) ) k1alpha -= keplerFadeRate;
-				if (k1peaked == true && k1alpha <= 0) k1done = true; k1doneFrame = frame;
+				if (k1peaked == true && k1alpha <= 0){ k1done = true; k1doneFrame = frame; }
 			}
 		}
 		//draw kepler 2
@@ -346,7 +346,7 @@ $( document ).ready(function() {
 				else if (k2peaked == false && k2alpha >= 1) k2peaked = true;
 				if (k2peaked == true && typeof k2peakedFrame === 'undefined') k2peakedFrame = frame;
 				if (frame >= (k2peakedFrame + keplerPauseFrames ) ) k2alpha -= keplerFadeRate;
-				if (k2peaked == true && k2alpha <= 0) k2done = true; k2doneFrame = frame;
+				if (k2peaked == true && k2alpha <= 0){ k2done = true; k2doneFrame = frame; }
 			}
 		}
 		//draw kepler 3
@@ -363,7 +363,7 @@ $( document ).ready(function() {
 				else if (k3peaked == false && k3alpha >= 1) k3peaked = true;
 				if (k3peaked == true && typeof k3peakedFrame === 'undefined') k3peakedFrame = frame;
 				if (frame >= (k3peakedFrame + keplerPauseFrames ) ) k3alpha -= keplerFadeRate;
-				if (k3peaked == true && k3alpha <= 0) k3done = true; k3doneFrame = frame;
+				if (k3peaked == true && k3alpha <= 0){ k3done = true; k3doneFrame = frame; }
 			}
 		}
 		//draw kepler 4
@@ -380,7 +380,7 @@ $( document ).ready(function() {
 				else if (k4peaked == false && k4alpha >= 1) k4peaked = true;
 				if (k4peaked == true && typeof k4peakedFrame === 'undefined') k4peakedFrame = frame;
 				if (frame >= (k4peakedFrame + keplerPauseFrames ) ) k4alpha -= keplerFadeRate;
-				if (k4peaked == true && k4alpha <= 0) k4done = true; k4doneFrame = frame;
+				if (k4peaked == true && k4alpha <= 0){ k4done = true; k4doneFrame = frame; }
 			}
 		}
 		//draw kepler 5
@@ -395,7 +395,7 @@ $( document ).ready(function() {
 			
 				if (k5peaked == false && k5alpha < 1) k5alpha += keplerFadeRate;
 				else if (k5peaked == false && k5alpha >= 1) k5peaked = true;
-				if (k5peaked == true && typeof k5peakedFrame === 'undefined') k5peakedFrame = frame; k5done = true;
+				if (k5peaked == true && typeof k5peakedFrame === 'undefined'){ k5peakedFrame = frame; }
 			}
 		}
 		
