@@ -83,8 +83,8 @@ $( document ).ready(function() {
 	
 	//kepler variables
 	var framesBetweenSnowBuildAndKepler = 20;
-	var keplerFadeRate = .002;
-	
+	var keplerFadeRate = .01;
+	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha =0;
 	
 	var flakeFrequency = 300; //higher number = fewer flakes
 	
@@ -247,7 +247,13 @@ $( document ).ready(function() {
 		
 		//draw kepler
 		if (frame >= (lastSnowBuildFrame + framesBetweenSnowBuildAndKepler) ){
+			ctx.save();
+			ctx.globalAlpha = k1alpha;
 			drawCharacter(kepler1, k1x, k1y, k1w, k1h);
+			ctx.restore();
+			
+			//increment transparency
+			k1alpha += keplerFadeRate;
 		}
 		
 	} //end draw
