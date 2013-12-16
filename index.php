@@ -50,6 +50,7 @@
 		      <div class="bb-debug"></div>
 		    </div>
 			<canvas id="card" width="1000" height="750"></canvas>
+			<button id="play" type="button" autofocus="autofocus"></button>
 	    </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>

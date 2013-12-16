@@ -40,3 +40,26 @@ canvas#card{
 	background-image: url('../img/backgrounds/default.jpg');
 	background-repeat: no-repeat;
 }
+
+button{
+	background: none repeat scroll 0 0 transparent;
+	background-position:center center;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+#play{
+	width:120px;
+	height:120px;
+	background-image:url('../img/play.png');
+}
+
+#play:active{
+	background-image:url('../img/play-down.png');
+}
