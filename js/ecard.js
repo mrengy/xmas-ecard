@@ -193,15 +193,6 @@ $( document ).ready(function() {
 		//only when snow build is done, draw the lightning
 		if (snow3alpha >= 1){
 			
-			//draw fishBanner
-			if (fbx < WIDTH){
-				drawCharacter(fishBanner, fbx, fby, fbw, fbh);
-				fbx += (flakeIncrement / 3);
-
-				drawCharacter(lightning, lx, (fby + 10), lw, lh);
-				lx += (flakeIncrement /3);
-			}
-			
 			//create a new lightning
 			if (getRandomInt(1, flakeFrequency) == 1){ 
 				lightningw = getRandomInt(80, lw);
@@ -258,6 +249,17 @@ $( document ).ready(function() {
 				}
 			});
 		} //end conditional for drawing lightning
+		
+		if (k5peaked == true){
+			//draw fishBanner if kepler is done
+			if (fbx < WIDTH){
+				drawCharacter(fishBanner, fbx, fby, fbw, fbh);
+				fbx += (flakeIncrement / 3);
+
+				drawCharacter(lightning, lx, (fby + 10), lw, lh);
+				lx += (flakeIncrement /3);
+			}
+		}
 		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
