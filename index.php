@@ -15,7 +15,17 @@
 			//set custom image if the recipient is defined
 			if ( isset($_GET['r']) ){
 			    $recipient = $_GET['r'];
-				$imagePath = 'img/backgrounds/'.$recipient.'.jpg';
+				
+				$atPosition = strpos($recipient, '@');
+				if (empty($atPosition)){
+					$imagePath = 'img/backgrounds/'.$recipient.'.jpg';
+				}
+				
+				//corrects the recipient name to exclude the "@" character and everything after it.
+				else{
+					$adjustedRecipient = substr($recipient, 0, $atPosition);
+					$imagePath = 'img/backgrounds/'.$adjustedRecipient.'.jpg';
+				}
 				if (file_exists($imagePath)){
 					echo "<style> canvas#card{ background-image: url('$imagePath'); } </style>";
 				}
@@ -25,7 +35,6 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-
         <div id="wrapper">
 	        <h1>Season's greetings!</h1>
 			<canvas id="card" width="1000" height="750"></canvas>
