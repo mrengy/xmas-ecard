@@ -26,6 +26,7 @@
 					$adjustedRecipient = substr($recipient, 0, $atPosition);
 					$imagePath = 'img/backgrounds/'.$adjustedRecipient.'.jpg';
 				}
+				
 				if (file_exists($imagePath)){
 					echo "<style> canvas#card{ background-image: url('$imagePath'); } </style>";
 				}
