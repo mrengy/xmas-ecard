@@ -16,7 +16,9 @@
 			if ( isset($_GET['r']) ){
 			    $recipient = $_GET['r'];
 				$imagePath = 'img/backgrounds/'.$recipient.'.jpg';
-				echo "<style> canvas#card{ background-image: url('$imagePath'); } </style>";
+				if (file_exists($imagePath)){
+					echo "<style> canvas#card{ background-image: url('$imagePath'); } </style>";
+				}
 			}
 		?>
 
