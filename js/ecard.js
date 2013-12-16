@@ -34,7 +34,8 @@ $( document ).ready(function() {
 	var lightnings = [];
 	var lightning = new Image();
 	lightning.src = 'img/lightning.png';
-	var lx = lx0 = -200;
+	var lx;
+	var lx0;
 	var ly = ly0 = 100;
 	var dlx = 2;
 	var dly = 0;
@@ -44,6 +45,7 @@ $( document ).ready(function() {
 	lightning.addEventListener('load', function(){
 		lw = lightning.naturalWidth;
 		lh = lightning.naturalHeight;
+		lx = lx0 = (0 - lw);
 	}, false);
 	
 	var frys = [];
@@ -59,6 +61,20 @@ $( document ).ready(function() {
 	fry.addEventListener('load', function(){
 		fw = fry.naturalWidth;
 		fh = fry.naturalHeight;
+	}, false);
+	
+	var fishBanner = new Image();
+	fishBanner.src = 'img/fishBanner.png';
+	var fbx;
+	var fby = 200;
+	var fbw;
+	var fbh;
+	//set natural width and natural height once the image is loaded
+	fishBanner.addEventListener('load', function(){
+		fbw = fishBanner.naturalWidth;
+		fbh = fishBanner.naturalHeight;
+		//set x position to be at the left edge of the canvas
+		fbx = 0 - (fbw + lw -10);
 	}, false);
 	
 	var kepler1 = new Image();
@@ -176,6 +192,15 @@ $( document ).ready(function() {
 		
 		//only when snow build is done, draw the lightning
 		if (snow3alpha >= 1){
+			
+			//draw fishBanner
+			if (fbx < WIDTH){
+				drawCharacter(fishBanner, fbx, fby, fbw, fbh);
+				fbx += (flakeIncrement / 3);
+
+				drawCharacter(lightning, lx, (fby + 10), lw, lh);
+				lx += (flakeIncrement /3);
+			}
 			
 			//create a new lightning
 			if (getRandomInt(1, flakeFrequency) == 1){ 
