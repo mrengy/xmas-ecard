@@ -39,8 +39,6 @@
         <div id="wrapper">
 	        <h1>Season's greetings!</h1>
 			<canvas id="card" width="1000" height="750"></canvas>
-	        <p>Wishing you a happy and whimsical holiday season,</p>
-			<p><em>Emily, Mike, Kepler, &amp; The Lightning</em></p>
 	      </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
