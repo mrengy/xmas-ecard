@@ -11,6 +11,14 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/ecard.css">
+		<?php
+			//set custom image if the recipient is defined
+			if ( isset($_GET['r']) ){
+			    $recipient = $_GET['r'];
+				$imagePath = 'img/backgrounds/'.$recipient.'.jpg';
+				echo "<style> canvas#card{ background-image: url('$imagePath'); } </style>";
+			}
+		?>
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
