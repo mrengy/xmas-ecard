@@ -5,6 +5,8 @@ $( document ).ready(function() {
 	var intervalId = 0;
 	var frame = 0;
 	
+	var audioPlayer;
+	
 	var emflakes = [];
 	var emflake = new Image();
 	emflake.src = 'img/emflake.png';
@@ -179,13 +181,17 @@ $( document ).ready(function() {
 	function init(){
 		//set context
 		ctx = $("canvas#card")[0].getContext('2d');
-		WIDTH = $("canvas#card").width()
-		HEIGHT = $("canvas#card").height()		
+		WIDTH = $("canvas#card").width();
+		HEIGHT = $("canvas#card").height();
+		
+		audioPlayer = $('.bbplayer audio')[0];
 	}
 	
 	function startDrawing(){
 		$('button#play').hide();
 		intervalId = setInterval(draw, 10);
+		
+		audioPlayer.play();
 	}
 	
 	function draw(){
