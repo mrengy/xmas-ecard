@@ -187,6 +187,17 @@ $( document ).ready(function() {
 		audioPlayer = $('.bbplayer audio')[0];
 	}
 	
+	function toggleMute(){
+		if(audioPlayer.volume == 1){ 
+			audioPlayer.volume = 0;
+			$('button#mute').addClass('muted');
+		}
+		else{ 
+			audioPlayer.volume = 1;
+			$('button#mute').removeClass('muted');
+		}
+	}
+	
 	function startDrawing(){
 		$('button#play').hide();
 		intervalId = setInterval(draw, 10);
@@ -516,6 +527,6 @@ $( document ).ready(function() {
 	init(); 
 	
 	$('button#play').on('click', startDrawing );
-	
+	$('button#mute').on('click', toggleMute );
 //end document ready	
 });

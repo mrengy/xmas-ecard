@@ -90,3 +90,11 @@ button{
 #mute:active{
 	background-image:url('../img/unmuted-down.png');
 }
+
+#mute.muted{
+	background-image:url("../img/muted.png");
+}
+
+#mute.muted:active{
+	background-image:url("../img/muted-down.png");
+}
