@@ -184,7 +184,7 @@ $( document ).ready(function() {
 		WIDTH = $("canvas#card").width();
 		HEIGHT = $("canvas#card").height();
 		
-		audioPlayer = $('.bbplayer audio')[0];
+		audioPlayer = $('audio')[0];
 	}
 	
 	function toggleMute(){

@@ -39,16 +39,11 @@
     <body>
         <div id="wrapper">
 	        <h1>Season's greetings!</h1>
-			<div class="bbplayer">
-			  <span class="bb-play"></span>
 		      <audio>
 		        <source src="audio/girl-with-the-flaxen-hair.ogg" type="audio/ogg"></source>
 		        <source src="audio/girl-with-the-flaxen-hair.mp3" type="audio/mpeg"></source>
 		        HTML5 Audio Not Available
 		      </audio>
-		      <div class="bb-label">Optional debug panel:</div>
-		      <div class="bb-debug"></div>
-		    </div>
 			<div id="canvas-container">
 				<canvas id="card" width="1000" height="750"></canvas>
 				<button id="play" type="button" autofocus="autofocus"></button>

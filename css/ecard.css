@@ -98,3 +98,7 @@ button{
 #mute.muted:active{
 	background-image:url("../img/muted-down.png");
 }
+
+audio{
+	display:none;
+}
