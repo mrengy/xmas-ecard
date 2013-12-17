@@ -38,7 +38,6 @@ p{
 #canvas-container{
 	position:relative;
 	overflow:auto;
-	text-align:center;
 }
 
 canvas#card{
@@ -58,19 +57,36 @@ button{
     text-align: center;
     text-decoration: none;
     text-indent: 0;
+	text-align:center;
+	z-index:2;
+	position:absolute;
 }
 
 #play{
 	width:120px;
 	height:120px;
-	z-index:2;
-	position:absolute;
 	top:230px;
 	left:440px;
 	background-image:url('../img/play.png');
-	text-align:center;
 }
 
 #play:active{
 	background-image:url('../img/play-down.png');
+}
+
+#mute{
+	width:80px;
+	height:80px;
+	top:0;
+	right:0;
+	/*background-position: 20px 10px ;*/
+	background-color: #FFF;
+	background-image:url('../img/unmuted.png');
+	border-radius: 0 0 0 60px;
+	moz-border-radius: 0 0 0 60px;
+	webkit-border-radius: 0 0 0 60px;
+}
+
+#mute:active{
+	background-image:url('../img/unmuted-down.png');
 }
