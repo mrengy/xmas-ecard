@@ -48,7 +48,7 @@ canvas#card{
 }
 
 button{
-	background: none repeat scroll 0 0 transparent;
+	background: none no-repeat scroll 0 0 transparent;
 	background-position:center center;
     border: medium none;
     border-spacing: 0;

@@ -179,10 +179,12 @@ $( document ).ready(function() {
 	function init(){
 		//set context
 		ctx = $("canvas#card")[0].getContext('2d');
-		
 		WIDTH = $("canvas#card").width()
-		HEIGHT = $("canvas#card").height()
-		
+		HEIGHT = $("canvas#card").height()		
+	}
+	
+	function startDrawing(){
+		$('button#play').hide();
 		intervalId = setInterval(draw, 10);
 	}
 	
@@ -506,6 +508,8 @@ $( document ).ready(function() {
 	}
 	
 	init(); 
+	
+	$('button#play').on('click', startDrawing );
 	
 //end document ready	
 });
