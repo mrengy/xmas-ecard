@@ -35,6 +35,12 @@ p{
 	
 }
 
+#canvas-container{
+	position:relative;
+	overflow:auto;
+	text-align:center;
+}
+
 canvas#card{
 	background: #CCC;
 	background-image: url('../img/backgrounds/default.jpg');
@@ -57,7 +63,12 @@ button{
 #play{
 	width:120px;
 	height:120px;
+	z-index:2;
+	position:absolute;
+	top:230px;
+	left:440px;
 	background-image:url('../img/play.png');
+	text-align:center;
 }
 
 #play:active{
