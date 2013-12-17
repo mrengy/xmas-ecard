@@ -11,7 +11,6 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/ecard.css">
-		<link rel="stylesheet" href="css/bbplayer.css">
 		<?php
 			//set custom image if the recipient is defined
 			if ( isset($_GET['r']) ){
@@ -53,7 +52,6 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-		<script src="js/vendor/bbplayer.js"></script>
         <script src="js/ecard.js"></script>
 
         <script>
