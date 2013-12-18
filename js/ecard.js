@@ -188,12 +188,12 @@ $( document ).ready(function() {
 	}
 	
 	function toggleMute(){
-		if(audioPlayer.volume == 1){ 
-			audioPlayer.volume = 0;
+		if(audioPlayer.muted == false){ 
+			audioPlayer.muted = true;
 			$('button#mute').addClass('muted');
 		}
 		else{ 
-			audioPlayer.volume = 1;
+			audioPlayer.muted = false;
 			$('button#mute').removeClass('muted');
 		}
 	}
