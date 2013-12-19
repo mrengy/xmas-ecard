@@ -59,11 +59,19 @@ $( document ).ready(function() {
 	var lw;
 	var lh;
 	//set natural width and natural height once the image is loaded
-	lightning.addEventListener('load', function(){
-		lw = lightning.naturalWidth;
-		lh = lightning.naturalHeight;
-		lx = lx0 = (0 - lw);
-	}, false);
+	if (lightning.addEventListener){
+		lightning.addEventListener('load', function(){
+			lw = lightning.naturalWidth;
+			lh = lightning.naturalHeight;
+			lx = lx0 = (0 - lw);
+		}, false);
+	} else if (lightning.attachEvent){
+		lightning.attachEvent('onload', function(){
+			lw = lightning.naturalWidth;
+			lh = lightning.naturalHeight;
+			lx = lx0 = (0 - lw);
+		});
+	}
 	
 	var frys = [];
 	var fry = new Image();
@@ -75,10 +83,17 @@ $( document ).ready(function() {
 	var fw;
 	var fh;
 	//set natural width and natural height once the image is loaded
-	fry.addEventListener('load', function(){
-		fw = fry.naturalWidth;
-		fh = fry.naturalHeight;
-	}, false);
+	if (fry.addEventListener){
+		fry.addEventListener('load', function(){
+			fw = fry.naturalWidth;
+			fh = fry.naturalHeight;
+		}, false);
+	} else if (fry.attachEvent){
+		fry.attachEvent('onload', function(){
+			fw = fry.naturalWidth;
+			fh = fry.naturalHeight;
+		});
+	}
 	
 	var fishBanner = new Image();
 	fishBanner.src = 'img/fishBanner.png';
@@ -87,12 +102,21 @@ $( document ).ready(function() {
 	var fbw;
 	var fbh;
 	//set natural width and natural height once the image is loaded
-	fishBanner.addEventListener('load', function(){
-		fbw = fishBanner.naturalWidth;
-		fbh = fishBanner.naturalHeight;
-		//set x position to be at the left edge of the canvas
-		fbx = 0 - (fbw + lw -10);
-	}, false);
+	if (fishBanner.addEventListener){
+		fishBanner.addEventListener('load', function(){
+			fbw = fishBanner.naturalWidth;
+			fbh = fishBanner.naturalHeight;
+			//set x position to be at the left edge of the canvas
+			fbx = 0 - (fbw + lw -10);
+		}, false);
+	} else if (fishBanner.attachEvent){
+		fishBanner.attachEvent('onload', function(){
+			fbw = fishBanner.naturalWidth;
+			fbh = fishBanner.naturalHeight;
+			//set x position to be at the left edge of the canvas
+			fbx = 0 - (fbw + lw -10);
+		});
+	}
 	
 	var kepler1 = new Image();
 	kepler1.src = 'img/kepler1.png';
@@ -101,12 +125,21 @@ $( document ).ready(function() {
 	var k1w;
 	var k1h;
 	//set natural width and natural height once the image is loaded
-	kepler1.addEventListener('load', function(){
-		k1w = kepler1.naturalWidth;
-		k1h = kepler1.naturalHeight;
-		//set kepler x position to be at the right edge of the canvas
-		k1x = WIDTH - k1w;
-	}, false);
+	if (kepler1.addEventListener){
+		kepler1.addEventListener('load', function(){
+			k1w = kepler1.naturalWidth;
+			k1h = kepler1.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k1x = WIDTH - k1w;
+		}, false);
+	} else if (kepler1.attachEvent){
+		kepler1.attachEvent('onload', function(){
+			k1w = kepler1.naturalWidth;
+			k1h = kepler1.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k1x = WIDTH - k1w;
+		});
+	}
 	
 	var kepler2 = new Image();
 	kepler2.src = 'img/kepler2.png';
@@ -115,12 +148,21 @@ $( document ).ready(function() {
 	var k2w;
 	var k2h;
 	//set natural width and natural height once the image is loaded
-	kepler2.addEventListener('load', function(){
-		k2w = kepler2.naturalWidth;
-		k2h = kepler2.naturalHeight;
-		//set kepler x position to be at the right edge of the canvas
-		k2x = WIDTH - k2w;
-	}, false);
+	if (kepler2.addEventListener){
+		kepler2.addEventListener('load', function(){
+			k2w = kepler2.naturalWidth;
+			k2h = kepler2.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k2x = WIDTH - k2w;
+		}, false);
+	} else if (kepler2.attachEvent){
+		kepler2.attachEvent('onload', function(){
+			k2w = kepler2.naturalWidth;
+			k2h = kepler2.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k2x = WIDTH - k2w;
+		});
+	}
 	
 	var kepler3 = new Image();
 	kepler3.src = 'img/kepler3.png';
@@ -129,12 +171,21 @@ $( document ).ready(function() {
 	var k3w;
 	var k3h;
 	//set natural width and natural height once the image is loaded
-	kepler3.addEventListener('load', function(){
-		k3w = kepler3.naturalWidth;
-		k3h = kepler3.naturalHeight;
-		//set kepler x position to be at the right edge of the canvas
-		k3x = WIDTH - k3w;
-	}, false);
+	if (kepler3.addEventListener){
+		kepler3.addEventListener('load', function(){
+			k3w = kepler3.naturalWidth;
+			k3h = kepler3.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k3x = WIDTH - k3w;
+		}, false);
+	} else if (kepler3.attachEvent){
+		kepler3.attachEvent('onload', function(){
+			k3w = kepler3.naturalWidth;
+			k3h = kepler3.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k3x = WIDTH - k3w;
+		});
+	}
 	
 	var kepler4 = new Image();
 	kepler4.src = 'img/kepler4.png';
@@ -143,12 +194,21 @@ $( document ).ready(function() {
 	var k4w;
 	var k4h;
 	//set natural width and natural height once the image is loaded
-	kepler4.addEventListener('load', function(){
-		k4w = kepler4.naturalWidth;
-		k4h = kepler4.naturalHeight;
-		//set kepler x position to be at the right edge of the canvas
-		k4x = WIDTH - k4w;
-	}, false);
+	if (kepler4.addEventListener){
+		kepler4.addEventListener('load', function(){
+			k4w = kepler4.naturalWidth;
+			k4h = kepler4.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k4x = WIDTH - k4w;
+		}, false);
+	} else if (kepler4.attachEvent){
+		kepler4.attachEvent('onload', function(){
+			k4w = kepler4.naturalWidth;
+			k4h = kepler4.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k4x = WIDTH - k4w;
+		});
+	}
 	
 	var kepler5 = new Image();
 	kepler5.src = 'img/kepler5.png';
@@ -157,13 +217,21 @@ $( document ).ready(function() {
 	var k5w;
 	var k5h;
 	//set natural width and natural height once the image is loaded
-	kepler5.addEventListener('load', function(){
-		k5w = kepler5.naturalWidth;
-		k5h = kepler5.naturalHeight;
-		//set kepler x position to be at the right edge of the canvas
-		k5x = WIDTH - k5w;
-	}, false);
-	
+	if (kepler5.addEventListener){
+		kepler5.addEventListener('load', function(){
+			k5w = kepler5.naturalWidth;
+			k5h = kepler5.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k5x = WIDTH - k5w;
+		}, false);
+	} else if (kepler5.attachEvent){
+		kepler5.attachEvent('onload', function(){
+			k5w = kepler5.naturalWidth;
+			k5h = kepler5.naturalHeight;
+			//set kepler x position to be at the right edge of the canvas
+			k5x = WIDTH - k5w;
+		});
+	}
 	//snow build variables
 	var firstSnowBuildFrame = 20;
 	var snowFadeInRate = .002;
