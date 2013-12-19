@@ -6,6 +6,7 @@ $( document ).ready(function() {
 	var frame = 0;
 	
 	var audioPlayer;
+	var playerMuted = false;
 	
 	var emflakes = [];
 	var emflake = new Image();
@@ -188,13 +189,19 @@ $( document ).ready(function() {
 	}
 	
 	function toggleMute(){
-		if(audioPlayer.muted == false){ 
-			audioPlayer.muted = true;
+		if(playerMuted == false){ 
+			//variable to force iOS to know that the icon is supposed to be shown in the muted state, even though it doesn't respect actually muting
+			playerMuted = true;
+			
 			$('button#mute').addClass('muted');
+			
+			//actually mutes the audio
+			audioPlayer.muted = true;
 		}
 		else{ 
-			audioPlayer.muted = false;
+			playerMuted = true;
 			$('button#mute').removeClass('muted');
+			audioPlayer.muted = false;
 		}
 	}
 	
