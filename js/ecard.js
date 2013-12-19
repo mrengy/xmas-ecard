@@ -16,10 +16,17 @@ $( document ).ready(function() {
 	var ew;
 	var eh;
 	//set natural width and natural height once the image is loaded
-	emflake.addEventListener('load', function(){
-		ew = emflake.naturalWidth;
-		eh = emflake.naturalHeight;
-	}, false);
+	if(emflake.addEventListener){
+		emflake.addEventListener('load', function(){
+			ew = emflake.naturalWidth;
+			eh = emflake.naturalHeight;
+		}, false);
+	} else if (emflake.attachEvent){
+		emflake.attachEvent('onload', function(){
+			ew = emflake.naturalWidth;
+			eh = emflake.naturalHeight;
+		});
+	}
 	
 	var mikeflakes = [];
 	var mikeflake = new Image();
@@ -29,10 +36,17 @@ $( document ).ready(function() {
 	var mw;
 	var mh;
 	//set natural width and natural height once the image is loaded
-	mikeflake.addEventListener('load', function(){
-		mw = mikeflake.naturalWidth;
-		mh = mikeflake.naturalHeight;
-	}, false);
+	if(mikeflake.addEventListener){}
+		mikeflake.addEventListener('load', function(){
+			mw = mikeflake.naturalWidth;
+			mh = mikeflake.naturalHeight;
+		}, false);
+	} else if(mikeflake.attachEvent){
+		mikeflake.attachEvent('onload', function(){
+			mw = mikeflake.naturalWidth;
+			mh = mikeflake.naturalHeight;
+		});
+	}
 	
 	var lightnings = [];
 	var lightning = new Image();
