@@ -36,7 +36,7 @@ $( document ).ready(function() {
 	var mw;
 	var mh;
 	//set natural width and natural height once the image is loaded
-	if(mikeflake.addEventListener){}
+	if(mikeflake.addEventListener){
 		mikeflake.addEventListener('load', function(){
 			mw = mikeflake.naturalWidth;
 			mh = mikeflake.naturalHeight;
