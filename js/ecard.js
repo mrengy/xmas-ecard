@@ -199,7 +199,7 @@ $( document ).ready(function() {
 			audioPlayer.muted = true;
 		}
 		else{ 
-			playerMuted = true;
+			playerMuted = false;
 			$('button#mute').removeClass('muted');
 			audioPlayer.muted = false;
 		}
