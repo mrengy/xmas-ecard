@@ -34,12 +34,7 @@
 		?>
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-		<script type="text/javascript">
-			Modernizr.load({
-			  test: Modernizr.canvas,
-			  nope: 'js/vendor/excanvas.js'
-			});
-		</script>
+		<!--[if lt IE 9]><script src="js/vendor/excanvas.js"></script><![endif]-->
     </head>
     <body>
         <div id="wrapper">
