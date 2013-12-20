@@ -234,7 +234,7 @@ $( document ).ready(function() {
 	}
 	//snow build variables
 	var firstSnowBuildFrame = 500;
-	var snowFadeInRate = .002;
+	var snowFadeInRate = .001;
 	var snow1alpha = snow2alpha = snow3alpha = 0;
 	var lastSnowBuildFrame;
 	
