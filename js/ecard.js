@@ -268,7 +268,7 @@ $( document ).ready(function() {
 		WIDTH = $("canvas#card").width();
 		HEIGHT = $("canvas#card").height();
 		
-		audioPlayer = $('audio')[0];
+		audioPlayer = $('.audio audio')[0];
 	}
 	
 	function toggleMute(){
@@ -292,7 +292,10 @@ $( document ).ready(function() {
 		$('button#play').hide();
 		intervalId = setInterval(draw, 10);
 		
-		audioPlayer.play();
+		//only play audio if the browser supports it. Thanks, Microsoft 
+		if(typeof audioPlayer != 'undefined'){
+			audioPlayer.play();
+		}
 	}
 	
 	function draw(){
