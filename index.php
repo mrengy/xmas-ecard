@@ -6,6 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="IE=7" /><![endif]-->
         <title>Season's Greetings from Em &amp; M</title>
         <meta name="description" content="">
 
