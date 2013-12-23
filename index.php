@@ -50,6 +50,9 @@
 				<button id="play" type="button" autofocus="autofocus"></button>
 				<button id="mute" type="button"></button>
 			</div>
+			<p>
+				<a href="https://github.com/mrengy/xmas-ecard" title="browse the code used to create this" alt="browse the code used to create this">View code on Github</a>
+			</p>
 	    </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
