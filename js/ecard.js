@@ -263,7 +263,7 @@ $( document ).ready(function() {
 	
 	function init(){
 		//set context
-		var canvas = G_vmlCanvasManager ? G_vmlCanvasManager.initElement($("canvas#card")[0]) : $("canvas#card")[0];
+		var canvas = (typeof(G_vmlCanvasManager) != 'undefined') ? G_vmlCanvasManager.initElement($("canvas#card")[0]) : $("canvas#card")[0];
 		ctx = canvas.getContext('2d');
 		WIDTH = $("canvas#card").width();
 		HEIGHT = $("canvas#card").height();
