@@ -268,7 +268,7 @@ $( document ).ready(function() {
 	var bbTop = 318.5;
 	var bbCenter = 338.5;
 	var bbBottom = 358.5;
-	var bbBaseline = 470;
+	var bbBaseline = 344.5;
 	
 	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85, -466];
 	
@@ -393,7 +393,7 @@ $( document ).ready(function() {
 			}
 		}
 		
-		//start bonus banner 1
+	//start bonus banner 1
 		// bonusBanner1 Background
 	      ctx.save();
 	      ctx.beginPath();
@@ -411,26 +411,27 @@ $( document ).ready(function() {
 	      ctx.miterLimit = 4.0;
 	      ctx.stroke();
 	      ctx.restore();
-		
-			$.each( bb1x, function( i, currentPoint ) {
-				currentPoint += (flakeIncrement / 3);
-				bb1x[i] = currentPoint;
-			});
 
 	      // bonusBanner1Text/Thats about all we have to say
 	      ctx.save();
 	      ctx.font = "20.0px 'Helvetica'";
-	      ctx.fillText("That's about all we have to say.", 418.1, 344.5);
+	      ctx.fillText("That's about all we have to say.", bb1x[9], bbBaseline);
 
 	      // bonusBanner1 String
 	      ctx.beginPath();
-	      ctx.moveTo(735.0, 338.5);
-	      ctx.lineTo(799.0, 338.5);
+	      ctx.moveTo(bb1x[7], bbCenter);
+	      ctx.lineTo(bb1x[8], bbCenter);
 	      ctx.lineJoin = "miter";
 	      ctx.miterLimit = 4.0;
 	      ctx.stroke();
 	      ctx.restore();
-		//end bonus banner 1
+			
+		//move banner 1
+		$.each( bb1x, function( i, currentPoint ) {
+			currentPoint += (flakeIncrement / 3);
+			bb1x[i] = currentPoint;
+		});
+	//end bonus banner 1
 		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
