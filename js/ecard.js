@@ -268,8 +268,9 @@ $( document ).ready(function() {
 	var bbTop = 318.5;
 	var bbCenter = 338.5;
 	var bbBottom = 358.5;
+	var bbBaseline = 470;
 	
-	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85];
+	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85, -466];
 	
 	/*
 	var bb1x1 = bb1x5 = bb1x7 = -502;
