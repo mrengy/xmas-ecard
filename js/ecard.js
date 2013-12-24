@@ -269,13 +269,16 @@ $( document ).ready(function() {
 	var bbCenter = 338.5;
 	var bbBottom = 358.5;
 	
+	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85];
+	
+	/*
 	var bb1x1 = bb1x5 = bb1x7 = -502;
 	var bb1x2 = bb1x4 = -170;
 	var bb1x3 = bb1x8 = -149;
 	var bb1x6 = -481;
 	
 	var bb1x9 = -85;
-	
+	*/
 	
 	function init(){
 		//set context
@@ -390,16 +393,16 @@ $( document ).ready(function() {
 		}
 		
 		//start bonus banner 1
-		// bonusBanner1Bg/Path
+		// bonusBanner1 Background
 	      ctx.save();
 	      ctx.beginPath();
-	      ctx.moveTo(bb1x1, bbTop);
-	      ctx.lineTo(bb1x2, bbTop);
-	      ctx.lineTo(bb1x3, bbCenter);
-	      ctx.lineTo(bb1x4, bbBottom);
-	      ctx.lineTo(bb1x5, bbBottom);
-	      ctx.lineTo(bb1x6, bbCenter);
-	      ctx.lineTo(bb1x7, bbTop);
+	      ctx.moveTo(bb1x[0], bbTop);
+	      ctx.lineTo(bb1x[1], bbTop);
+	      ctx.lineTo(bb1x[2], bbCenter);
+	      ctx.lineTo(bb1x[3], bbBottom);
+	      ctx.lineTo(bb1x[4], bbBottom);
+	      ctx.lineTo(bb1x[5], bbCenter);
+	      ctx.lineTo(bb1x[6], bbTop);
 	      ctx.closePath();
 	      ctx.fillStyle = "rgb(255, 255, 255)";
 	      ctx.fill();
@@ -407,13 +410,18 @@ $( document ).ready(function() {
 	      ctx.miterLimit = 4.0;
 	      ctx.stroke();
 	      ctx.restore();
+		
+			$.each( bb1x, function( i, currentPoint ) {
+				currentPoint += (flakeIncrement / 3);
+				bb1x[i] = currentPoint;
+			});
 
 	      // bonusBanner1Text/Thats about all we have to say
 	      ctx.save();
 	      ctx.font = "20.0px 'Helvetica'";
 	      ctx.fillText("That's about all we have to say.", 418.1, 344.5);
 
-	      // bonusBanner1Text/Path
+	      // bonusBanner1 String
 	      ctx.beginPath();
 	      ctx.moveTo(735.0, 338.5);
 	      ctx.lineTo(799.0, 338.5);
