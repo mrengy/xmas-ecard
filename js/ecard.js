@@ -269,9 +269,9 @@ $( document ).ready(function() {
 	var bbCenter = 338.5;
 	var bbBottom = 358.5;
 	
-	var bb1x1 = bb1x5 = bb1x7 -502;
-	var bb1x2 = bb1x4 -170;
-	var bb1x3 = bb1x8 -149;
+	var bb1x1 = bb1x5 = bb1x7 = -502;
+	var bb1x2 = bb1x4 = -170;
+	var bb1x3 = bb1x8 = -149;
 	var bb1x6 = -481;
 	
 	var bb1x9 = -85;
@@ -393,13 +393,13 @@ $( document ).ready(function() {
 		// bonusBanner1Bg/Path
 	      ctx.save();
 	      ctx.beginPath();
-	      ctx.moveTo(382.0, 318.5);
-	      ctx.lineTo(714.0, 318.5);
-	      ctx.lineTo(735.0, 338.5);
-	      ctx.lineTo(714.7, 358.5);
-	      ctx.lineTo(382.0, 358.5);
-	      ctx.lineTo(403.0, 337.5);
-	      ctx.lineTo(382.0, 318.5);
+	      ctx.moveTo(bb1x1, bbTop);
+	      ctx.lineTo(bb1x2, bbTop);
+	      ctx.lineTo(bb1x3, bbCenter);
+	      ctx.lineTo(bb1x4, bbBottom);
+	      ctx.lineTo(bb1x5, bbBottom);
+	      ctx.lineTo(bb1x6, bbCenter);
+	      ctx.lineTo(bb1x7, bbTop);
 	      ctx.closePath();
 	      ctx.fillStyle = "rgb(255, 255, 255)";
 	      ctx.fill();
