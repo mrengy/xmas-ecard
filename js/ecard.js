@@ -271,12 +271,18 @@ $( document ).ready(function() {
 	var bbBaseline = 344.5;
 	var bbFry = 330;
 	
+	//initial x positions for each banner element, including text and fry
 	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85, -466, -87];
+	var bb2x = [-522, -170, -149, -170, -522, -501, -522, -149, -85, -486, -87];
+	var bb3x = [-1012, -170, -149, -170, -1012, -991, -1012, -149, -85, -976, -87];
+	var bb4x = [-242, -170, -149, -170, -242, -221, -242, -149, -85, -206, -87];
+	
 	
 	function init(){
 		//set context
 		var canvas = (typeof(G_vmlCanvasManager) != 'undefined') ? G_vmlCanvasManager.initElement($("canvas#card")[0]) : $("canvas#card")[0];
 		ctx = canvas.getContext('2d');
+	    ctx.font = "20.0px Arial, Helvetica, sans-serif";
 		WIDTH = $("canvas#card").width();
 		HEIGHT = $("canvas#card").height();
 		
@@ -385,6 +391,7 @@ $( document ).ready(function() {
 			}
 		}
 		
+	/*
 	//start bonus banner 1
 		// bonusBanner1 Background
 	      ctx.save();
@@ -406,7 +413,6 @@ $( document ).ready(function() {
 
 	      // bonusBanner1Text/Thats about all we have to say
 	      ctx.save();
-	      ctx.font = "20.0px Arial, Helvetica, sans-serif";
 	      ctx.fillText("That's about all we have to say.", bb1x[9], bbBaseline);
 
 	      // bonusBanner1 String
@@ -427,6 +433,135 @@ $( document ).ready(function() {
 			bb1x[i] = currentPoint;
 		});
 	//end bonus banner 1
+	*/
+	/*
+	//start bonus banner 2
+		// bonusBanner2 Background
+	      ctx.save();
+	      ctx.beginPath();
+	      ctx.moveTo(bb2x[0], bbTop);
+	      ctx.lineTo(bb2x[1], bbTop);
+	      ctx.lineTo(bb2x[2], bbCenter);
+	      ctx.lineTo(bb2x[3], bbBottom);
+	      ctx.lineTo(bb2x[4], bbBottom);
+	      ctx.lineTo(bb2x[5], bbCenter);
+	      ctx.lineTo(bb2x[6], bbTop);
+	      ctx.closePath();
+	      ctx.fillStyle = "rgb(255, 255, 255)";
+	      ctx.fill();
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+	      // bonusBanner2Text
+	      ctx.save();
+	      ctx.fillText("We're getting tired of pulling these.", bb2x[9], bbBaseline);
+
+	      // bonusBanner2 String
+	      ctx.beginPath();
+	      ctx.moveTo(bb2x[7], bbCenter);
+	      ctx.lineTo(bb2x[8], bbCenter);
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+		  //draw fry
+		  drawCharacter(fry, bb2x[10], bbFry, fw, fh);
+
+		//move banner 2 by incrementing all values in the x position array
+		$.each( bb2x, function( i, currentPoint ) {
+			currentPoint += (flakeIncrement / 3);
+			bb2x[i] = currentPoint;
+		});
+	//end bonus banner 2
+	*/
+	/*
+	//start bonus banner 3
+		// bonusBanner3 Background
+	      ctx.save();
+	      ctx.beginPath();
+	      ctx.moveTo(bb3x[0], bbTop);
+	      ctx.lineTo(bb3x[1], bbTop);
+	      ctx.lineTo(bb3x[2], bbCenter);
+	      ctx.lineTo(bb3x[3], bbBottom);
+	      ctx.lineTo(bb3x[4], bbBottom);
+	      ctx.lineTo(bb3x[5], bbCenter);
+	      ctx.lineTo(bb3x[6], bbTop);
+	      ctx.closePath();
+	      ctx.fillStyle = "rgb(255, 255, 255)";
+	      ctx.fill();
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+	      // bonusBanner3 Text
+	      ctx.save();
+	      ctx.fillText("Seriously. When was the last time you pulled something 30 times the length of your body?", bb3x[9], bbBaseline);
+
+	      // bonusBanner3 String
+	      ctx.beginPath();
+	      ctx.moveTo(bb3x[7], bbCenter);
+	      ctx.lineTo(bb3x[8], bbCenter);
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+		  //draw fry
+		  drawCharacter(fry, bb3x[10], bbFry, fw, fh);
+
+		//move banner 3 by incrementing all values in the x position array
+		$.each( bb3x, function( i, currentPoint ) {
+			currentPoint += (flakeIncrement / 3);
+			bb3x[i] = currentPoint;
+		});
+	//end bonus banner 3
+	*/
+	
+	//start bonus banner 4
+		// bonusBanner4 Background
+	      ctx.save();
+	      ctx.beginPath();
+	      ctx.moveTo(bb4x[0], bbTop);
+	      ctx.lineTo(bb4x[1], bbTop);
+	      ctx.lineTo(bb4x[2], bbCenter);
+	      ctx.lineTo(bb4x[3], bbBottom);
+	      ctx.lineTo(bb4x[4], bbBottom);
+	      ctx.lineTo(bb4x[5], bbCenter);
+	      ctx.lineTo(bb4x[6], bbTop);
+	      ctx.closePath();
+	      ctx.fillStyle = "rgb(255, 255, 255)";
+	      ctx.fill();
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+	      // bonusBanner4 Text
+	      ctx.save();
+	      ctx.fillText("<3", bb4x[9], bbBaseline);
+
+	      // bonusBanner4 String
+	      ctx.beginPath();
+	      ctx.moveTo(bb4x[7], bbCenter);
+	      ctx.lineTo(bb4x[8], bbCenter);
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+		  //draw fry
+		  drawCharacter(fry, bb4x[10], bbFry, fw, fh);
+
+		//move banner 4 by incrementing all values in the x position array
+		$.each( bb4x, function( i, currentPoint ) {
+			currentPoint += (flakeIncrement / 3);
+			bb4x[i] = currentPoint;
+		});
+	//end bonus banner 4
 		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
