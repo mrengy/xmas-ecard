@@ -241,7 +241,7 @@ $( document ).ready(function() {
 	//kepler variables
 	var framesBetweenSnowBuildAndKepler = 20;
 	var keplerFadeRate = .005;
-	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha =0;
+	var k1alpha = k2alpha = k3alpha = k4alpha = k5alpha = 0;
 	var keplerPauseFrames = 200;
 	var k1peaked = k2peaked = k3peaked = k4peaked = k5peaked = false;
 	var k1peakedFrame;
@@ -392,183 +392,195 @@ $( document ).ready(function() {
 
 				drawCharacter(lightning, lx, (fby + 10), lw, lh);
 				lx += (flakeIncrement /3);
-			} else if (typeof fishBannerDoneFrame === 'undefined'){
+			} else if (fbx >= WIDTH && typeof fishBannerDoneFrame === 'undefined'){
 				fishBannerDoneFrame = frame;
 			}
 		}
 		
-	//start bonus banner 1 after fishBanner is done and the delay has passed
+		//start bonus banner 1 after fishBanner is done and the delay has passed
 		if (frame > (fishBannerDoneFrame + bannerDelay) && bb1x[0] < WIDTH){
-		// bonusBanner1 Background
-	      ctx.save();
-	      ctx.beginPath();
-	      ctx.moveTo(bb1x[0], bbTop);
-	      ctx.lineTo(bb1x[1], bbTop);
-	      ctx.lineTo(bb1x[2], bbCenter);
-	      ctx.lineTo(bb1x[3], bbBottom);
-	      ctx.lineTo(bb1x[4], bbBottom);
-	      ctx.lineTo(bb1x[5], bbCenter);
-	      ctx.lineTo(bb1x[6], bbTop);
-	      ctx.closePath();
-	      ctx.fillStyle = "rgb(255, 255, 255)";
-	      ctx.fill();
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+			// bonusBanner1 Background
+		      ctx.save();
+		      ctx.beginPath();
+		      ctx.moveTo(bb1x[0], bbTop);
+		      ctx.lineTo(bb1x[1], bbTop);
+		      ctx.lineTo(bb1x[2], bbCenter);
+		      ctx.lineTo(bb1x[3], bbBottom);
+		      ctx.lineTo(bb1x[4], bbBottom);
+		      ctx.lineTo(bb1x[5], bbCenter);
+		      ctx.lineTo(bb1x[6], bbTop);
+		      ctx.closePath();
+		      ctx.fillStyle = "rgb(255, 255, 255)";
+		      ctx.fill();
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-	      // bonusBanner1Text/Thats about all we have to say
-	      ctx.save();
-	      ctx.fillText("That's about all we have to say.", bb1x[9], bbBaseline);
+		      // bonusBanner1Text/Thats about all we have to say
+		      ctx.save();
+		      ctx.fillText("That's about all we have to say.", bb1x[9], bbBaseline);
 
-	      // bonusBanner1 String
-	      ctx.beginPath();
-	      ctx.moveTo(bb1x[7], bbCenter);
-	      ctx.lineTo(bb1x[8], bbCenter);
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+		      // bonusBanner1 String
+		      ctx.beginPath();
+		      ctx.moveTo(bb1x[7], bbCenter);
+		      ctx.lineTo(bb1x[8], bbCenter);
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 	
-		  //draw fry
-		  drawCharacter(fry, bb1x[10], bbFry, fw, fh);
+			  //draw fry
+			  drawCharacter(fry, bb1x[10], bbFry, fw, fh);
 			
-		//move banner 1 by incrementing all values in the x position array
-		$.each( bb1x, function( i, currentPoint ) {
-			currentPoint += (flakeIncrement / 3);
-			bb1x[i] = currentPoint;
-		});
-	}
-	//end bonus banner 1
-	/*
-	//start bonus banner 2
-		// bonusBanner2 Background
-	      ctx.save();
-	      ctx.beginPath();
-	      ctx.moveTo(bb2x[0], bbTop);
-	      ctx.lineTo(bb2x[1], bbTop);
-	      ctx.lineTo(bb2x[2], bbCenter);
-	      ctx.lineTo(bb2x[3], bbBottom);
-	      ctx.lineTo(bb2x[4], bbBottom);
-	      ctx.lineTo(bb2x[5], bbCenter);
-	      ctx.lineTo(bb2x[6], bbTop);
-	      ctx.closePath();
-	      ctx.fillStyle = "rgb(255, 255, 255)";
-	      ctx.fill();
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+			//move banner 1 by incrementing all values in the x position array
+			$.each( bb1x, function( i, currentPoint ) {
+				currentPoint += (flakeIncrement / 3);
+				bb1x[i] = currentPoint;
+			});
+		} else if (bb1x[0] >= WIDTH && typeof banner1DoneFrame === 'undefined'){
+			banner1DoneFrame = frame;
+		}
+		//end bonus banner 1
+	
+		//start bonus banner 2 when ready
+		if (frame > (banner1DoneFrame + bannerDelay) && bb2x[0] < WIDTH){
+			// bonusBanner2 Background
+		      ctx.save();
+		      ctx.beginPath();
+		      ctx.moveTo(bb2x[0], bbTop);
+		      ctx.lineTo(bb2x[1], bbTop);
+		      ctx.lineTo(bb2x[2], bbCenter);
+		      ctx.lineTo(bb2x[3], bbBottom);
+		      ctx.lineTo(bb2x[4], bbBottom);
+		      ctx.lineTo(bb2x[5], bbCenter);
+		      ctx.lineTo(bb2x[6], bbTop);
+		      ctx.closePath();
+		      ctx.fillStyle = "rgb(255, 255, 255)";
+		      ctx.fill();
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-	      // bonusBanner2Text
-	      ctx.save();
-	      ctx.fillText("We're getting tired of pulling these.", bb2x[9], bbBaseline);
+		      // bonusBanner2Text
+		      ctx.save();
+		      ctx.fillText("We're getting tired of pulling these.", bb2x[9], bbBaseline);
 
-	      // bonusBanner2 String
-	      ctx.beginPath();
-	      ctx.moveTo(bb2x[7], bbCenter);
-	      ctx.lineTo(bb2x[8], bbCenter);
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+		      // bonusBanner2 String
+		      ctx.beginPath();
+		      ctx.moveTo(bb2x[7], bbCenter);
+		      ctx.lineTo(bb2x[8], bbCenter);
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-		  //draw fry
-		  drawCharacter(fry, bb2x[10], bbFry, fw, fh);
+			  //draw fry
+			  drawCharacter(fry, bb2x[10], bbFry, fw, fh);
 
-		//move banner 2 by incrementing all values in the x position array
-		$.each( bb2x, function( i, currentPoint ) {
-			currentPoint += (flakeIncrement / 3);
-			bb2x[i] = currentPoint;
-		});
-	//end bonus banner 2
-	*/
-	/*
-	//start bonus banner 3
-		// bonusBanner3 Background
-	      ctx.save();
-	      ctx.beginPath();
-	      ctx.moveTo(bb3x[0], bbTop);
-	      ctx.lineTo(bb3x[1], bbTop);
-	      ctx.lineTo(bb3x[2], bbCenter);
-	      ctx.lineTo(bb3x[3], bbBottom);
-	      ctx.lineTo(bb3x[4], bbBottom);
-	      ctx.lineTo(bb3x[5], bbCenter);
-	      ctx.lineTo(bb3x[6], bbTop);
-	      ctx.closePath();
-	      ctx.fillStyle = "rgb(255, 255, 255)";
-	      ctx.fill();
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+			//move banner 2 by incrementing all values in the x position array
+			$.each( bb2x, function( i, currentPoint ) {
+				currentPoint += (flakeIncrement / 3);
+				bb2x[i] = currentPoint;
+			});
+		} else if (bb2x[0] >= WIDTH && typeof banner2DoneFrame === 'undefined'){
+			banner2DoneFrame = frame;
+		}
+		//end bonus banner 2
+	
+		//start bonus banner 3 when ready
+		if (frame > (banner2DoneFrame + bannerDelay) && bb3x[0] < WIDTH){
+			// bonusBanner3 Background
+		      ctx.save();
+		      ctx.beginPath();
+		      ctx.moveTo(bb3x[0], bbTop);
+		      ctx.lineTo(bb3x[1], bbTop);
+		      ctx.lineTo(bb3x[2], bbCenter);
+		      ctx.lineTo(bb3x[3], bbBottom);
+		      ctx.lineTo(bb3x[4], bbBottom);
+		      ctx.lineTo(bb3x[5], bbCenter);
+		      ctx.lineTo(bb3x[6], bbTop);
+		      ctx.closePath();
+		      ctx.fillStyle = "rgb(255, 255, 255)";
+		      ctx.fill();
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-	      // bonusBanner3 Text
-	      ctx.save();
-	      ctx.fillText("Seriously. When was the last time you pulled something 30 times the length of your body?", bb3x[9], bbBaseline);
+		      // bonusBanner3 Text
+		      ctx.save();
+		      ctx.fillText("Seriously. When was the last time you pulled something 30 times the length of your body?", bb3x[9], bbBaseline);
 
-	      // bonusBanner3 String
-	      ctx.beginPath();
-	      ctx.moveTo(bb3x[7], bbCenter);
-	      ctx.lineTo(bb3x[8], bbCenter);
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+		      // bonusBanner3 String
+		      ctx.beginPath();
+		      ctx.moveTo(bb3x[7], bbCenter);
+		      ctx.lineTo(bb3x[8], bbCenter);
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-		  //draw fry
-		  drawCharacter(fry, bb3x[10], bbFry, fw, fh);
+			  //draw fry
+			  drawCharacter(fry, bb3x[10], bbFry, fw, fh);
 
-		//move banner 3 by incrementing all values in the x position array
-		$.each( bb3x, function( i, currentPoint ) {
-			currentPoint += (flakeIncrement / 3);
-			bb3x[i] = currentPoint;
-		});
-	//end bonus banner 3
-	*/
-	/*
-	//start bonus banner 4
-		// bonusBanner4 Background
-	      ctx.save();
-	      ctx.beginPath();
-	      ctx.moveTo(bb4x[0], bbTop);
-	      ctx.lineTo(bb4x[1], bbTop);
-	      ctx.lineTo(bb4x[2], bbCenter);
-	      ctx.lineTo(bb4x[3], bbBottom);
-	      ctx.lineTo(bb4x[4], bbBottom);
-	      ctx.lineTo(bb4x[5], bbCenter);
-	      ctx.lineTo(bb4x[6], bbTop);
-	      ctx.closePath();
-	      ctx.fillStyle = "rgb(255, 255, 255)";
-	      ctx.fill();
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+			//move banner 3 by incrementing all values in the x position array
+			$.each( bb3x, function( i, currentPoint ) {
+				currentPoint += (flakeIncrement / 3);
+				bb3x[i] = currentPoint;
+			});
+		//end bonus banner 3
+		} else if (bb3x[0] >= WIDTH && typeof banner3DoneFrame === 'undefined'){
+			banner3DoneFrame = frame;
+		}
+	
+		//start bonus banner 4 when ready
+		if (frame > (banner3DoneFrame + bannerDelay) && bb4x[0] < WIDTH){
+			// bonusBanner4 Background
+		      ctx.save();
+		      ctx.beginPath();
+		      ctx.moveTo(bb4x[0], bbTop);
+		      ctx.lineTo(bb4x[1], bbTop);
+		      ctx.lineTo(bb4x[2], bbCenter);
+		      ctx.lineTo(bb4x[3], bbBottom);
+		      ctx.lineTo(bb4x[4], bbBottom);
+		      ctx.lineTo(bb4x[5], bbCenter);
+		      ctx.lineTo(bb4x[6], bbTop);
+		      ctx.closePath();
+		      ctx.fillStyle = "rgb(255, 255, 255)";
+		      ctx.fill();
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-	      // bonusBanner4 Text
-	      ctx.save();
-	      ctx.fillText("<3", bb4x[9], bbBaseline);
+		      // bonusBanner4 Text
+		      ctx.save();
+		      ctx.fillText("<3", bb4x[9], bbBaseline);
 
-	      // bonusBanner4 String
-	      ctx.beginPath();
-	      ctx.moveTo(bb4x[7], bbCenter);
-	      ctx.lineTo(bb4x[8], bbCenter);
-	      ctx.lineJoin = "miter";
-	      ctx.miterLimit = 4.0;
-	      ctx.stroke();
-	      ctx.restore();
+		      // bonusBanner4 String
+		      ctx.beginPath();
+		      ctx.moveTo(bb4x[7], bbCenter);
+		      ctx.lineTo(bb4x[8], bbCenter);
+		      ctx.lineJoin = "miter";
+		      ctx.miterLimit = 4.0;
+		      ctx.stroke();
+		      ctx.restore();
 
-		  //draw fry
-		  drawCharacter(fry, bb4x[10], bbFry, fw, fh);
+			  //draw fry
+			  drawCharacter(fry, bb4x[10], bbFry, fw, fh);
 
-		//move banner 4 by incrementing all values in the x position array
-		$.each( bb4x, function( i, currentPoint ) {
-			currentPoint += (flakeIncrement / 3);
-			bb4x[i] = currentPoint;
-		});
-	//end bonus banner 4
-	*/	
+			//move banner 4 by incrementing all values in the x position array
+			$.each( bb4x, function( i, currentPoint ) {
+				currentPoint += (flakeIncrement / 3);
+				bb4x[i] = currentPoint;
+			});
+		//end bonus banner 4
+		} else if (bb4x[0] >= WIDTH && typeof banner4DoneFrame === 'undefined'){
+			banner4DoneFrame = frame;
+		}
+		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, mw);
