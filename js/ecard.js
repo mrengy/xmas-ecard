@@ -269,17 +269,9 @@ $( document ).ready(function() {
 	var bbCenter = 338.5;
 	var bbBottom = 358.5;
 	var bbBaseline = 344.5;
+	var bbFry = 330;
 	
-	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85, -466];
-	
-	/*
-	var bb1x1 = bb1x5 = bb1x7 = -502;
-	var bb1x2 = bb1x4 = -170;
-	var bb1x3 = bb1x8 = -149;
-	var bb1x6 = -481;
-	
-	var bb1x9 = -85;
-	*/
+	var bb1x = [-502, -170, -149, -170, -502, -481, -502, -149, -85, -466, -87];
 	
 	function init(){
 		//set context
@@ -414,7 +406,7 @@ $( document ).ready(function() {
 
 	      // bonusBanner1Text/Thats about all we have to say
 	      ctx.save();
-	      ctx.font = "20.0px 'Helvetica'";
+	      ctx.font = "20.0px Arial, Helvetica, sans-serif";
 	      ctx.fillText("That's about all we have to say.", bb1x[9], bbBaseline);
 
 	      // bonusBanner1 String
@@ -425,8 +417,11 @@ $( document ).ready(function() {
 	      ctx.miterLimit = 4.0;
 	      ctx.stroke();
 	      ctx.restore();
+	
+		  //draw fry
+		  drawCharacter(fry, bb1x[10], bbFry, fw, fh);
 			
-		//move banner 1
+		//move banner 1 by incrementing all values in the x position array
 		$.each( bb1x, function( i, currentPoint ) {
 			currentPoint += (flakeIncrement / 3);
 			bb1x[i] = currentPoint;
