@@ -261,6 +261,10 @@ $( document ).ready(function() {
 	var flakeFrequency = 300; //higher number = fewer flakes
 	var flakeIncrement = 4; //base speed at which flakes fall
 	
+	//bonus banner variables
+	var lastBannerFrame;
+	var bannerDelay = 300;
+	
 	function init(){
 		//set context
 		var canvas = (typeof(G_vmlCanvasManager) != 'undefined') ? G_vmlCanvasManager.initElement($("canvas#card")[0]) : $("canvas#card")[0];
@@ -372,6 +376,40 @@ $( document ).ready(function() {
 				lx += (flakeIncrement /3);
 			}
 		}
+		
+		//start bonus banner 1
+		// bonusBanner1Bg/Path
+	      ctx.save();
+	      ctx.beginPath();
+	      ctx.moveTo(382.0, 318.5);
+	      ctx.lineTo(714.0, 318.5);
+	      ctx.lineTo(735.0, 338.5);
+	      ctx.lineTo(714.7, 358.5);
+	      ctx.lineTo(382.0, 358.5);
+	      ctx.lineTo(403.0, 337.5);
+	      ctx.lineTo(382.0, 318.5);
+	      ctx.closePath();
+	      ctx.fillStyle = "rgb(255, 255, 255)";
+	      ctx.fill();
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+
+	      // bonusBanner1Text/Thats about all we have to say
+	      ctx.save();
+	      ctx.font = "20.0px 'Helvetica'";
+	      ctx.fillText("That's about all we have to say.", 418.1, 344.5);
+
+	      // bonusBanner1Text/Path
+	      ctx.beginPath();
+	      ctx.moveTo(735.0, 338.5);
+	      ctx.lineTo(799.0, 338.5);
+	      ctx.lineJoin = "miter";
+	      ctx.miterLimit = 4.0;
+	      ctx.stroke();
+	      ctx.restore();
+		//end bonus banner 1
 		
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
