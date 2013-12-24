@@ -265,6 +265,18 @@ $( document ).ready(function() {
 	var lastBannerFrame;
 	var bannerDelay = 300;
 	
+	var bbTop = 318.5;
+	var bbCenter = 338.5;
+	var bbBottom = 358.5;
+	
+	var bb1x1 = bb1x5 = bb1x7 -502;
+	var bb1x2 = bb1x4 -170;
+	var bb1x3 = bb1x8 -149;
+	var bb1x6 = -481;
+	
+	var bb1x9 = -85;
+	
+	
 	function init(){
 		//set context
 		var canvas = (typeof(G_vmlCanvasManager) != 'undefined') ? G_vmlCanvasManager.initElement($("canvas#card")[0]) : $("canvas#card")[0];
