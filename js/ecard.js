@@ -262,7 +262,11 @@ $( document ).ready(function() {
 	var flakeIncrement = 4; //base speed at which flakes fall
 	
 	//bonus banner variables
-	var lastBannerFrame;
+	var fishBannerDoneFrame;
+	var banner1DoneFrame;
+	var banner2DoneFrame;
+	var banner3DoneFrame;
+	var banner4DoneFrame;
 	var bannerDelay = 300;
 	
 	var bbTop = 318.5;
@@ -388,11 +392,13 @@ $( document ).ready(function() {
 
 				drawCharacter(lightning, lx, (fby + 10), lw, lh);
 				lx += (flakeIncrement /3);
+			} else if (typeof fishBannerDoneFrame === 'undefined'){
+				fishBannerDoneFrame = frame;
 			}
 		}
 		
-	/*
-	//start bonus banner 1
+	//start bonus banner 1 after fishBanner is done and the delay has passed
+		if (frame > (fishBannerDoneFrame + bannerDelay) && bb1x[0] < WIDTH){
 		// bonusBanner1 Background
 	      ctx.save();
 	      ctx.beginPath();
@@ -432,8 +438,8 @@ $( document ).ready(function() {
 			currentPoint += (flakeIncrement / 3);
 			bb1x[i] = currentPoint;
 		});
+	}
 	//end bonus banner 1
-	*/
 	/*
 	//start bonus banner 2
 		// bonusBanner2 Background
@@ -520,7 +526,7 @@ $( document ).ready(function() {
 		});
 	//end bonus banner 3
 	*/
-	
+	/*
 	//start bonus banner 4
 		// bonusBanner4 Background
 	      ctx.save();
@@ -562,7 +568,7 @@ $( document ).ready(function() {
 			bb4x[i] = currentPoint;
 		});
 	//end bonus banner 4
-		
+	*/	
 		//create a new mikeflake
 		if (getRandomInt(1, flakeFrequency) == 1){ 
 			mikeflakew = getRandomInt(50, mw);
